@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
     <title>Escape from the School 1 - Yottascope Pitch Deck</title>
+
     <style>
         * {
             margin: 0;
@@ -12,345 +14,496 @@
         }
 
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-secondary: #1a1a2e;
+            --bg: #0b0b0d;
+            --bg-elevated: #121216;
+            --bg-card: #17171d;
+            --bg-card-hover: #1d1d24;
+            --nav-bg: rgba(11, 11, 13, 0.86);
+
             --blurple: #5865F2;
-            --blurple-dark: #4752c4;
-            --blurple-light: #7c8ff0;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b3c1;
-            --accent: #00d4ff;
+            --blurple-light: #7c86f7;
+
+            --text-primary: #f7f7f9;
+            --text-secondary: #a8a8b3;
+            --text-muted: #777783;
+
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(88, 101, 242, 0.55);
+
+            --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+            --shadow-accent: 0 18px 50px rgba(88, 101, 242, 0.15);
+
+            --radius: 16px;
+            --transition: 220ms ease;
+        }
+
+        body.light {
+            --bg: #f5f6fa;
+            --bg-elevated: #ffffff;
+            --bg-card: #ffffff;
+            --bg-card-hover: #fafaff;
+            --nav-bg: rgba(255, 255, 255, 0.88);
+
+            --text-primary: #16171c;
+            --text-secondary: #5d606b;
+            --text-muted: #777a84;
+
+            --border: rgba(20, 20, 30, 0.10);
+            --border-hover: rgba(88, 101, 242, 0.45);
+
+            --shadow: 0 18px 45px rgba(30, 35, 60, 0.10);
+            --shadow-accent: 0 18px 45px rgba(88, 101, 242, 0.12);
         }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f0f1e 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.65;
             overflow-x: hidden;
+            transition: background-color var(--transition), color var(--transition);
         }
 
-        /* Navigation */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(88, 101, 242, 0.07), transparent 32%),
+                radial-gradient(circle at 85% 80%, rgba(88, 101, 242, 0.045), transparent 30%);
+        }
+
+        a,
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--blurple);
+            outline-offset: 4px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(88, 101, 242, 0.15);
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 1rem 2rem;
+            transition: background-color var(--transition), border-color var(--transition);
         }
 
         .nav-container {
             max-width: 1400px;
+            min-height: 72px;
             margin: 0 auto;
+            padding: 0.8rem 2rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 1rem;
         }
 
         .nav-logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 0.7rem;
-            letter-spacing: -0.5px;
+            text-decoration: none;
+            flex-shrink: 0;
         }
 
         .nav-logo img {
-            height: 36px;
-            width: auto;
-            filter: drop-shadow(0 0 8px rgba(88, 101, 242, 0.3));
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 9px;
+            filter: drop-shadow(0 0 10px rgba(88, 101, 242, 0.25));
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            align-items: center;
+            gap: 1.45rem;
             list-style: none;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.84rem;
             font-weight: 500;
-            transition: all 0.3s ease;
+            white-space: nowrap;
             position: relative;
+            transition: color var(--transition);
         }
 
         .nav-links a::after {
-            content: '';
+            content: "";
             position: absolute;
-            bottom: -4px;
             left: 0;
+            bottom: -7px;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--blurple), var(--accent));
-            transition: width 0.3s ease;
+            border-radius: 999px;
+            background: var(--blurple);
+            transition: width var(--transition);
         }
 
-        .nav-links a:hover {
-            color: var(--blurple);
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.8rem;
-            }
+        .theme-toggle,
+        .lang-toggle,
+        .menu-toggle {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition:
+                border-color var(--transition),
+                background-color var(--transition),
+                transform var(--transition);
         }
 
-        /* Sections */
+        .theme-toggle:hover,
+        .lang-toggle:hover,
+        .menu-toggle:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
+        }
+
+        .lang-toggle {
+            width: auto;
+            min-width: 42px;
+            padding: 0 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        .theme-icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 19px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 10px;
+            transition: transform 200ms ease, opacity 200ms ease;
+        }
+
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
         section {
-            scroll-margin-top: 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 2rem 4rem;
+            padding: 110px 2rem 70px;
             position: relative;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1120px;
             width: 100%;
+            margin: 0 auto;
         }
 
-        /* Hero Section */
+        /* =========================
+           HERO
+        ========================= */
+
         #hero {
-            background: radial-gradient(circle at 20% 50%, rgba(88, 101, 242, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            min-height: 100svh;
             text-align: center;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-content::before {
+            content: "";
+            display: block;
+            width: 72px;
+            height: 4px;
+            margin: 0 auto 2.2rem;
+            border-radius: 999px;
+            background: var(--blurple);
+            box-shadow: 0 0 30px rgba(88, 101, 242, 0.4);
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: clamp(2.7rem, 7vw, 4.7rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-            letter-spacing: -1px;
+            line-height: 1.08;
+            letter-spacing: -2.5px;
+            color: var(--text-primary);
         }
 
         .hero-content .tagline {
-            font-size: 1.3rem;
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin: 0 auto 2rem;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
             line-height: 1.8;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .hero-content .developer {
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--blurple-light);
+            font-size: 1.05rem;
             font-weight: 700;
         }
 
-        /* Section Headers */
+        .hero-content .developer::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--blurple);
+            box-shadow: 0 0 12px rgba(88, 101, 242, 0.8);
+        }
+
+        /* =========================
+           SECTION HEADERS
+        ========================= */
+
         h2 {
-            font-size: 3rem;
+            font-size: clamp(2.1rem, 5vw, 3.1rem);
             font-weight: 800;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 2.8rem;
+            color: var(--text-primary);
             text-align: center;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
         }
 
-        /* The Game Section */
-        .game-grid {
+        h2::after {
+            content: "";
+            display: block;
+            width: 42px;
+            height: 3px;
+            margin: 1rem auto 0;
+            border-radius: 999px;
+            background: var(--blurple);
+        }
+
+        /* =========================
+           SHARED CARDS
+        ========================= */
+
+        .game-card,
+        .gameplay-item,
+        .tech-card,
+        .strategy-card,
+        .world-content,
+        .team-content,
+        .budget-content,
+        .schedule-content,
+        .contact-link,
+        .ratings-note {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                background-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .game-card:hover,
+        .gameplay-item:hover,
+        .tech-card:hover,
+        .strategy-card:hover,
+        .contact-link:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-accent);
+        }
+
+        /* =========================
+           GRIDS
+        ========================= */
+
+        .game-grid,
+        .gameplay-grid,
+        .tech-grid,
+        .strategy-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
         }
 
-        .game-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+        .game-card,
+        .gameplay-item,
+        .tech-card,
+        .strategy-card {
+            padding: 2.4rem;
+            border-radius: var(--radius);
             position: relative;
             overflow: hidden;
         }
 
-        .game-card::before {
-            content: '';
+        .game-card::before,
+        .gameplay-item::before,
+        .tech-card::before,
+        .strategy-card::before {
+            content: "";
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--blurple);
+            transition: height 300ms ease;
+        }
+
+        .game-card:hover::before,
+        .gameplay-item:hover::before,
+        .tech-card:hover::before,
+        .strategy-card:hover::before {
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.1), transparent);
-            transition: left 0.6s ease;
         }
 
-        .game-card:hover {
-            border-color: var(--blurple);
-            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-8px);
-        }
-
-        .game-card:hover::before {
-            left: 100%;
-        }
-
-        .game-card h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            font-size: 1.6rem;
+        .game-card h3,
+        .gameplay-item h3,
+        .tech-card h3,
+        .strategy-card h3,
+        .world-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.4rem;
+            font-size: 1.45rem;
             font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        .game-card ul {
+        .game-card ul,
+        .gameplay-item ul,
+        .strategy-card ul {
             list-style: none;
             color: var(--text-secondary);
         }
 
-        .game-card li {
-            margin-bottom: 1rem;
+        .game-card li,
+        .gameplay-item li,
+        .strategy-card li {
+            margin-bottom: 0.9rem;
             padding-left: 1.5rem;
             position: relative;
         }
 
-        .game-card li:before {
+        .game-card li:last-child,
+        .gameplay-item li:last-child,
+        .strategy-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .game-card li::before {
             content: "▸";
-            color: var(--accent);
+            color: var(--blurple);
             position: absolute;
             left: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        /* Gameplay Section */
-        .gameplay-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .gameplay-item {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gameplay-item::before {
-            content: '';
+        .gameplay-item li::before {
+            content: "→";
+            color: var(--blurple);
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .gameplay-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-8px);
-        }
-
-        .gameplay-item:hover::before {
-            left: 100%;
-        }
-
-        .gameplay-item h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            font-size: 1.6rem;
+            left: 0;
             font-weight: 700;
         }
 
-        .gameplay-item ul {
-            list-style: none;
-            color: var(--text-secondary);
-        }
-
-        .gameplay-item li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .gameplay-item li:before {
-            content: "→";
-            color: var(--accent);
+        .strategy-card li::before {
+            content: "✓";
+            color: var(--blurple);
             position: absolute;
             left: 0;
-            font-weight: bold;
+            font-weight: 700;
         }
 
-        /* World Section */
+        /* =========================
+           WORLD
+        ========================= */
+
+        .world-content,
+        .team-content,
+        .budget-content,
+        .schedule-content {
+            border-radius: var(--radius);
+            padding: clamp(1.7rem, 4vw, 3.2rem);
+        }
+
         .world-content {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-left: 3px solid var(--blurple);
         }
 
         .world-content h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            font-weight: 700;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
         }
 
         .world-content h3:first-child {
@@ -360,259 +513,133 @@
         .world-content p {
             color: var(--text-secondary);
             margin-bottom: 1rem;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
         }
 
         .world-content ul {
             list-style: none;
             color: var(--text-secondary);
-            margin-left: 1rem;
+            margin: 1rem 0 1.5rem;
         }
 
         .world-content li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+            margin-bottom: 0.7rem;
+            padding-left: 1.6rem;
             position: relative;
         }
 
-        .world-content li:before {
+        .world-content li::before {
             content: "⊕";
-            color: var(--accent);
+            color: var(--blurple);
             position: absolute;
             left: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        /* Tech & Platforms */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .tech-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .tech-card:hover {
-            border-color: var(--blurple);
-            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-8px);
-        }
-
-        .tech-card:hover::before {
-            left: 100%;
-        }
-
-        .tech-card h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
+        /* =========================
+           TECH
+        ========================= */
 
         .tech-card .item {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.1rem;
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.98rem;
+        }
+
+        .tech-card .item:last-child {
+            margin-bottom: 0;
         }
 
         .tech-card .label {
-            color: var(--accent);
-            font-weight: 600;
+            color: var(--blurple-light);
+            font-weight: 700;
             display: inline-block;
             min-width: 120px;
         }
 
         .ratings-note {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 2rem;
+            padding: 1.5rem 1.7rem;
             border-radius: 12px;
-            border-left: 3px solid var(--accent);
-            margin-top: 2.5rem;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-left: 3px solid var(--blurple);
+            margin-top: 1.5rem;
         }
 
         .ratings-note p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             line-height: 1.6;
             margin: 0;
         }
 
-        /* Launch Strategy */
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
-        }
+        /* =========================
+           TEAM
+        ========================= */
 
-        .strategy-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .strategy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .strategy-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-8px);
-        }
-
-        .strategy-card:hover::before {
-            left: 100%;
-        }
-
-        .strategy-card h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-
-        .strategy-card ul {
-            list-style: none;
-            color: var(--text-secondary);
-        }
-
-        .strategy-card li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .strategy-card li:before {
-            content: "✓";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Team Section */
         .team-content {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
             text-align: center;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-top: 3px solid var(--blurple);
         }
 
         .team-content p {
             color: var(--text-secondary);
             margin-bottom: 1rem;
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             line-height: 1.8;
         }
 
-        /* Budget Section */
+        /* =========================
+           BUDGET
+        ========================= */
+
         .budget-content {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-top: 3px solid var(--blurple);
         }
 
         .budget-header {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2rem;
+            color: var(--text-primary);
+            font-size: clamp(1.6rem, 4vw, 2.1rem);
             font-weight: 800;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.3rem;
             text-align: center;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.6px;
         }
 
         .budget-items {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.4rem 2rem;
         }
 
         .budget-item {
-            border-left: 3px solid var(--accent);
-            padding-left: 1.5rem;
+            border-left: 3px solid var(--blurple);
+            padding: 0.2rem 0 0.2rem 1.2rem;
         }
 
         .budget-item .label {
-            color: var(--accent);
+            color: var(--blurple-light);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .budget-item .desc {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.94rem;
         }
 
-        /* Schedule Section */
+        /* =========================
+           SCHEDULE
+        ========================= */
+
         .schedule-content {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-left: 3px solid var(--blurple);
         }
 
         .phase {
-            margin-bottom: 2.5rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 2rem;
+            margin-bottom: 2.2rem;
+            padding-left: 1.6rem;
+            border-left: 2px solid rgba(88, 101, 242, 0.35);
             position: relative;
         }
 
@@ -620,11 +647,23 @@
             margin-bottom: 0;
         }
 
+        .phase::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 0.25rem;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--blurple);
+            box-shadow: 0 0 0 4px var(--bg-card);
+        }
+
         .phase h3 {
-            color: var(--accent);
-            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
         }
 
         .phase p {
@@ -632,174 +671,295 @@
             line-height: 1.7;
         }
 
-        /* Contact Section */
-        #contact {
-            text-align: center;
-            background: radial-gradient(circle at 20% 50%, rgba(88, 101, 242, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
-        }
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.3rem;
         }
 
         .contact-link {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(26, 26, 46, 0.3) 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .contact-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .contact-link:hover {
-            border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .contact-link:hover::before {
-            left: 100%;
-        }
-
         .contact-link strong {
-            color: var(--accent);
+            color: var(--text-primary);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
         }
 
         .contact-link a {
-            color: var(--blurple);
+            color: var(--blurple-light);
             text-decoration: none;
             font-weight: 600;
             display: block;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .contact-link a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+            word-break: break-word;
+            transition: color var(--transition);
         }
 
         .contact-link a:hover {
-            color: var(--accent);
+            color: var(--blurple);
         }
 
-        .contact-link a:hover::after {
-            width: 100%;
-        }
+        /* =========================
+           FOOTER
+        ========================= */
 
-        /* Footer */
         footer {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 26, 46, 0.5) 100%);
-            padding: 3rem 2rem;
+            background: var(--bg-elevated);
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            color: var(--text-secondary);
-            border-top: 1px solid rgba(88, 101, 242, 0.1);
-            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
         }
 
-        /* Smooth animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1050px) {
+            .nav-links {
+                gap: 1rem;
             }
-            to {
+
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+
+            .nav-container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .nav-actions {
+                margin-left: auto;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.7rem 1rem 1rem;
+                background: var(--nav-bg);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-8px);
+                transition:
+                    opacity 180ms ease,
+                    transform 180ms ease,
+                    visibility 180ms ease;
+            }
+
+            .nav-links.open {
                 opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
                 transform: translateY(0);
             }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 0.75rem;
+                border-radius: 8px;
+                font-size: 0.92rem;
+            }
+
+            .nav-links a:hover {
+                background: rgba(88, 101, 242, 0.08);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
         }
 
-        section {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             section {
-                padding: 80px 1rem 2rem;
+                min-height: auto;
+                padding: 100px 1rem 60px;
             }
 
-            h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .tagline {
-                font-size: 1rem;
+            #hero {
+                min-height: 100svh;
+                padding-top: 120px;
             }
 
             .game-grid,
             .gameplay-grid,
             .tech-grid,
-            .strategy-grid {
+            .strategy-grid,
+            .budget-items {
                 grid-template-columns: 1fr;
             }
 
-            .budget-items {
-                grid-template-columns: 1fr;
+            .game-card,
+            .gameplay-item,
+            .tech-card,
+            .strategy-card {
+                padding: 1.7rem;
+            }
+
+            .world-content,
+            .team-content,
+            .budget-content,
+            .schedule-content {
+                padding: 1.7rem;
             }
 
             .contact-links {
                 grid-template-columns: 1fr;
             }
 
-            .nav-links {
-                gap: 1.5rem;
+            .hero-content h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .hero-content .developer {
+                font-size: 0.95rem;
+            }
+
+            .tech-card .label {
+                min-width: 95px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                min-height: 64px;
+                padding: 0.65rem 0.9rem;
+            }
+
+            .nav-logo img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .theme-toggle,
+            .lang-toggle,
+            .menu-toggle {
+                width: 38px;
+                height: 38px;
+            }
+
+            .lang-toggle {
+                min-width: 38px;
+                padding: 0 8px;
+            }
+
+            section {
+                padding-left: 0.85rem;
+                padding-right: 0.85rem;
+            }
+
+            .game-card,
+            .gameplay-item,
+            .tech-card,
+            .strategy-card,
+            .contact-link {
+                padding: 1.4rem;
+            }
+
+            .world-content,
+            .team-content,
+            .budget-content,
+            .schedule-content {
+                padding: 1.4rem;
+            }
+
+            .phase {
+                padding-left: 1.2rem;
+            }
+        }
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
             }
         }
     </style>
 </head>
+
 <body>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo">
-                Yottascope
+
+            <a href="index.html" class="nav-logo" aria-label="Yottascope">
+                <img src="yottascopelogo.jpeg" alt="Yottascope Logo">
             </a>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#game">Game</a></li>
-                <li><a href="#gameplay">Gameplay</a></li>
-                <li><a href="#world">World</a></li>
-                <li><a href="#platforms">Platforms</a></li>
-                <li><a href="#strategy">Launch</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#budget">Budget</a></li>
-                <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" data-en="Home" data-tr="Ana Sayfa">Home</a></li>
+                <li><a href="#game" data-en="Game" data-tr="Oyun">Game</a></li>
+                <li><a href="#gameplay" data-en="Gameplay" data-tr="Oynanış">Gameplay</a></li>
+                <li><a href="#world" data-en="World" data-tr="Dünya">World</a></li>
+                <li><a href="#platforms" data-en="Platforms" data-tr="Platformlar">Platforms</a></li>
+                <li><a href="#strategy" data-en="Launch" data-tr="Lansman">Launch</a></li>
+                <li><a href="#team" data-en="Team" data-tr="Ekip">Team</a></li>
+                <li><a href="#budget" data-en="Budget" data-tr="Bütçe">Budget</a></li>
+                <li><a href="#schedule" data-en="Schedule" data-tr="Takvim">Schedule</a></li>
+                <li><a href="#contact" data-en="Contact" data-tr="İletişim">Contact</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">
+                    TR
+                </button>
+
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">☀</span>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
         </div>
     </nav>
 
@@ -807,9 +967,28 @@
     <section id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Escape from the School 1</h1>
-                <p class="tagline">A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.</p>
-                <p class="developer">Yottascope | Coming October 28, 2027</p>
+                <h1
+                    data-en="Escape from the School 1"
+                    data-tr="Escape from the School 1"
+                >
+                    Escape from the School 1
+                </h1>
+
+                <p
+                    class="tagline"
+                    data-en="A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars."
+                    data-tr="Gizemli bir şirketin, bir milyon dolar vaadiyle sizi terk edilmiş bir okula çektiği kurumsal korku oyunu."
+                >
+                    A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.
+                </p>
+
+                <p
+                    class="developer"
+                    data-en="Yottascope | Coming October 28, 2027"
+                    data-tr="Yottascope | 28 Ekim 2027'de Geliyor"
+                >
+                    Yottascope | Coming October 28, 2027
+                </p>
             </div>
         </div>
     </section>
@@ -817,24 +996,26 @@
     <!-- The Game Section -->
     <section id="game">
         <div class="container">
-            <h2>The Game</h2>
+            <h2 data-en="The Game" data-tr="Oyun">The Game</h2>
+
             <div class="game-grid">
                 <div class="game-card">
-                    <h3>What They Tell You</h3>
+                    <h3 data-en="What They Tell You" data-tr="Size Söyledikleri">What They Tell You</h3>
                     <ul>
-                        <li>Pomegranate Corp offers $1M</li>
-                        <li>Explore an abandoned school</li>
-                        <li>Corporate treasure hunt</li>
-                        <li>Easy money opportunity</li>
+                        <li data-en="Pomegranate Corp offers $1M" data-tr="Pomegranate Corp 1 Milyon Dolar Teklif Ediyor">Pomegranate Corp offers $1M</li>
+                        <li data-en="Explore an abandoned school" data-tr="Terk edilmiş bir okulu keşfedin">Explore an abandoned school</li>
+                        <li data-en="Corporate treasure hunt" data-tr="Kurumsal hazine avı">Corporate treasure hunt</li>
+                        <li data-en="Easy money opportunity" data-tr="Kolay para fırsatı">Easy money opportunity</li>
                     </ul>
                 </div>
+
                 <div class="game-card">
-                    <h3>What's Really Happening</h3>
+                    <h3 data-en="What's Really Happening" data-tr="Gerçekte Ne Oluyor">What's Really Happening</h3>
                     <ul>
-                        <li>It's a trap</li>
-                        <li>Coffee is poisoned</li>
-                        <li>The check is fake</li>
-                        <li>You're the real target</li>
+                        <li data-en="It's a trap" data-tr="Bu bir tuzak">It's a trap</li>
+                        <li data-en="Coffee is poisoned" data-tr="Kahve zehirli">Coffee is poisoned</li>
+                        <li data-en="The check is fake" data-tr="Çek sahte">The check is fake</li>
+                        <li data-en="You're the real target" data-tr="Asıl hedef sizsiniz">You're the real target</li>
                     </ul>
                 </div>
             </div>
@@ -844,24 +1025,26 @@
     <!-- Gameplay Section -->
     <section id="gameplay">
         <div class="container">
-            <h2>Gameplay</h2>
+            <h2 data-en="Gameplay" data-tr="Oynanış">Gameplay</h2>
+
             <div class="gameplay-grid">
                 <div class="gameplay-item">
-                    <h3>Bad Ending</h3>
+                    <h3 data-en="Bad Ending" data-tr="Kötü Son">Bad Ending</h3>
                     <ul>
-                        <li>Follow Pomegranate Corp orders</li>
-                        <li>Drink the coffee</li>
-                        <li>Accept the fake check</li>
-                        <li>Game over</li>
+                        <li data-en="Follow Pomegranate Corp orders" data-tr="Pomegranate Corp emirlerini takip edin">Follow Pomegranate Corp orders</li>
+                        <li data-en="Drink the coffee" data-tr="Kahveyi için">Drink the coffee</li>
+                        <li data-en="Accept the fake check" data-tr="Sahte çeki kabul edin">Accept the fake check</li>
+                        <li data-en="Game over" data-tr="Oyun biter">Game over</li>
                     </ul>
                 </div>
+
                 <div class="gameplay-item">
-                    <h3>True Ending</h3>
+                    <h3 data-en="True Ending" data-tr="Gerçek Son">True Ending</h3>
                     <ul>
-                        <li>Find the Pomephone P1 Max E</li>
-                        <li>Make the 911 call</li>
-                        <li>Call from school or Pomegranate HQ</li>
-                        <li>Escape and survive</li>
+                        <li data-en="Find the Pomephone P1 Max E" data-tr="Pomephone P1 Max E'yi bulun">Find the Pomephone P1 Max E</li>
+                        <li data-en="Make the 911 call" data-tr="911'i arayın">Make the 911 call</li>
+                        <li data-en="Call from school or Pomegranate HQ" data-tr="Okuldan veya Pomegranate merkezinden arayın">Call from school or Pomegranate HQ</li>
+                        <li data-en="Escape and survive" data-tr="Kaçın ve hayatta kalın">Escape and survive</li>
                     </ul>
                 </div>
             </div>
@@ -871,19 +1054,53 @@
     <!-- The World Section -->
     <section id="world">
         <div class="container">
-            <h2>The World</h2>
+            <h2 data-en="The World" data-tr="Dünya">The World</h2>
+
             <div class="world-content">
-                <h3>Environment</h3>
-                <p>A multi-level structure designed as a puzzle trap by Pomegranate Corp:</p>
+                <h3 data-en="Environment" data-tr="Çevre">Environment</h3>
+
+                <p
+                    data-en="A multi-level structure designed as a puzzle trap by Pomegranate Corp:"
+                    data-tr="Pomegranate Corp tarafından bulmaca tuzağı olarak tasarlanmış çok katlı bir yapı:"
+                >
+                    A multi-level structure designed as a puzzle trap by Pomegranate Corp:
+                </p>
+
                 <ul>
-                    <li><strong>Floor -2:</strong> Secret vent access only</li>
-                    <li><strong>Floor -1:</strong> Flooded basement</li>
-                    <li><strong>Floor 0:</strong> Entrance / Main hub</li>
-                    <li><strong>Floors 1-3:</strong> Classrooms and exploration areas</li>
-                    <li><strong>Floor 4:</strong> Open air terrace</li>
+                    <li>
+                        <strong data-en="Floor -2:" data-tr="Kat -2:">Floor -2:</strong>
+                        <span data-en=" Secret vent access only" data-tr=" Yalnızca gizli havalandırma erişimi"> Secret vent access only</span>
+                    </li>
+
+                    <li>
+                        <strong data-en="Floor -1:" data-tr="Kat -1:">Floor -1:</strong>
+                        <span data-en=" Flooded basement" data-tr=" Su basmış bodrum"> Flooded basement</span>
+                    </li>
+
+                    <li>
+                        <strong data-en="Floor 0:" data-tr="Kat 0:">Floor 0:</strong>
+                        <span data-en=" Entrance / Main hub" data-tr=" Giriş / Ana merkez"> Entrance / Main hub</span>
+                    </li>
+
+                    <li>
+                        <strong data-en="Floors 1-3:" data-tr="Katlar 1-3:">Floors 1-3:</strong>
+                        <span data-en=" Classrooms and exploration areas" data-tr=" Sınıflar ve keşif alanları"> Classrooms and exploration areas</span>
+                    </li>
+
+                    <li>
+                        <strong data-en="Floor 4:" data-tr="Kat 4:">Floor 4:</strong>
+                        <span data-en=" Open air terrace" data-tr=" Açık hava terası"> Open air terrace</span>
+                    </li>
                 </ul>
-                <h3>The Threat</h3>
-                <p>An enclosed courtyard filled with black chemical sludge, which is a bioweapon engineered by Pomegranate Corp to eliminate evidence and witnesses.</p>
+
+                <h3 data-en="The Threat" data-tr="Tehdit">The Threat</h3>
+
+                <p
+                    data-en="An enclosed courtyard filled with black chemical sludge, which is a bioweapon engineered by Pomegranate Corp to eliminate evidence and witnesses."
+                    data-tr="Kanıtları ve tanıkları ortadan kaldırmak için Pomegranate Corp tarafından tasarlanmış bir biyolojik silah olan siyah kimyasal çamurla dolu kapalı bir avlu."
+                >
+                    An enclosed courtyard filled with black chemical sludge, which is a bioweapon engineered by Pomegranate Corp to eliminate evidence and witnesses.
+                </p>
             </div>
         </div>
     </section>
@@ -891,23 +1108,58 @@
     <!-- Platforms & Tech Section -->
     <section id="platforms">
         <div class="container">
-            <h2>Platforms & Tech</h2>
+            <h2 data-en="Platforms & Tech" data-tr="Platformlar ve Teknoloji">Platforms & Tech</h2>
+
             <div class="tech-grid">
                 <div class="tech-card">
-                    <h3>Engine & Platforms</h3>
-                    <div class="item"><span class="label">Engine:</span> Unreal Engine 5</div>
-                    <div class="item"><span class="label">Desktop:</span> Windows, macOS, Linux (Debian, Fedora, Arch)</div>
-                    <div class="item"><span class="label">Mobile:</span> iOS, iPadOS, Android</div>
+                    <h3 data-en="Engine & Platforms" data-tr="Motor ve Platformlar">Engine & Platforms</h3>
+
+                    <div class="item">
+                        <span class="label" data-en="Engine:" data-tr="Motor:">Engine:</span>
+                        <span data-en=" Unreal Engine 5" data-tr=" Unreal Engine 5"> Unreal Engine 5</span>
+                    </div>
+
+                    <div class="item">
+                        <span class="label" data-en="Desktop:" data-tr="Masaüstü:">Desktop:</span>
+                        <span data-en=" Windows, macOS, Linux (Debian, Fedora, Arch)" data-tr=" Windows, macOS, Linux (Debian, Fedora, Arch)"> Windows, macOS, Linux (Debian, Fedora, Arch)</span>
+                    </div>
+
+                    <div class="item">
+                        <span class="label" data-en="Mobile:" data-tr="Mobil:">Mobile:</span>
+                        <span data-en=" iOS, iPadOS, Android" data-tr=" iOS, iPadOS, Android"> iOS, iPadOS, Android</span>
+                    </div>
                 </div>
+
                 <div class="tech-card">
-                    <h3>Ratings & Storefronts</h3>
-                    <div class="item"><span class="label">PEGI:</span> 16</div>
-                    <div class="item"><span class="label">ESRB:</span> M (Mature)</div>
-                    <div class="item"><span class="label">Stores:</span> Steam, Epic Games, App Store, Google Play</div>
+                    <h3 data-en="Ratings & Storefronts" data-tr="Derecelendirmeler ve Mağazalar">Ratings & Storefronts</h3>
+
+                    <div class="item">
+                        <span class="label" data-en="PEGI:" data-tr="PEGI:">PEGI:</span>
+                        <span> 16</span>
+                    </div>
+
+                    <div class="item">
+                        <span class="label" data-en="ESRB:" data-tr="ESRB:">ESRB:</span>
+                        <span> M (Mature)</span>
+                    </div>
+
+                    <div class="item">
+                        <span class="label" data-en="Stores:" data-tr="Mağazalar:">Stores:</span>
+                        <span data-en=" Steam, Epic Games, App Store, Google Play" data-tr=" Steam, Epic Games, App Store, Google Play"> Steam, Epic Games, App Store, Google Play</span>
+                    </div>
                 </div>
             </div>
+
             <div class="ratings-note">
-                <p><strong>Note:</strong> Age ratings are expected. Final ratings may be different.</p>
+                <p>
+                    <strong data-en="Note:" data-tr="Not:">Note:</strong>
+                    <span
+                        data-en=" Age ratings are expected. Final ratings may be different."
+                        data-tr=" Yaş derecelendirmeleri tahminidir. Nihai derecelendirmeler farklı olabilir."
+                    >
+                        Age ratings are expected. Final ratings may be different.
+                    </span>
+                </p>
             </div>
         </div>
     </section>
@@ -915,24 +1167,26 @@
     <!-- Launch Strategy Section -->
     <section id="strategy">
         <div class="container">
-            <h2>Launch Strategy</h2>
+            <h2 data-en="Launch Strategy" data-tr="Lansman Stratejisi">Launch Strategy</h2>
+
             <div class="strategy-grid">
                 <div class="strategy-card">
-                    <h3>Pricing & Discounts</h3>
+                    <h3 data-en="Pricing & Discounts" data-tr="Fiyatlandırma ve İndirimler">Pricing & Discounts</h3>
                     <ul>
-                        <li>Standard Edition: $9.99</li>
-                        <li>Premium Edition: $14.99</li>
-                        <li>Launch Discount: 20% off</li>
-                        <li>Regional Pricing: 50% off LATAM, MENA, SEA, Turkey</li>
+                        <li data-en="Standard Edition: $9.99" data-tr="Standart Sürüm: $9.99">Standard Edition: $9.99</li>
+                        <li data-en="Premium Edition: $14.99" data-tr="Premium Sürüm: $14.99">Premium Edition: $14.99</li>
+                        <li data-en="Launch Discount: 20% off" data-tr="Lansman İndirimi: %20 indirim">Launch Discount: 20% off</li>
+                        <li data-en="Regional Pricing: 50% off LATAM, MENA, SEA, Turkey" data-tr="Bölgesel Fiyatlandırma: LATAM, MENA, SEA, Türkiye'de %50 indirim">Regional Pricing: 50% off LATAM, MENA, SEA, Turkey</li>
                     </ul>
                 </div>
+
                 <div class="strategy-card">
-                    <h3>Market Reach</h3>
+                    <h3 data-en="Market Reach" data-tr="Pazar Erişimi">Market Reach</h3>
                     <ul>
-                        <li>Next Fest Participation: October 2027</li>
-                        <li>Streamer Outreach Campaign</li>
-                        <li>14 Language Support</li>
-                        <li>Global Launch: October 28, 2027</li>
+                        <li data-en="Next Fest Participation: October 2027" data-tr="Next Fest Katılımı: Ekim 2027">Next Fest Participation: October 2027</li>
+                        <li data-en="Streamer Outreach Campaign" data-tr="Yayıncı İletişim Kampanyası">Streamer Outreach Campaign</li>
+                        <li data-en="14 Language Support" data-tr="14 Dil Desteği">14 Language Support</li>
+                        <li data-en="Global Launch: October 28, 2027" data-tr="Global Lansman: 28 Ekim 2027">Global Launch: October 28, 2027</li>
                     </ul>
                 </div>
             </div>
@@ -942,9 +1196,15 @@
     <!-- Team Section -->
     <section id="team">
         <div class="container">
-            <h2>The Team</h2>
+            <h2 data-en="The Team" data-tr="Ekip">The Team</h2>
+
             <div class="team-content">
-                <p>Yottascope is led by two co-founder developers and a company manager bringing extensive business acumen and strategic experience.</p>
+                <p
+                    data-en="Yottascope is led by two co-founder developers and a company manager bringing extensive business acumen and strategic experience."
+                    data-tr="Yottascope, kapsamlı iş bilgisi ve stratejik deneyim sunan iki kurucu geliştirici ve bir şirket yöneticisi tarafından yönetilmektedir."
+                >
+                    Yottascope is led by two co-founder developers and a company manager bringing extensive business acumen and strategic experience.
+                </p>
             </div>
         </div>
     </section>
@@ -952,37 +1212,51 @@
     <!-- Budget Section -->
     <section id="budget">
         <div class="container">
-            <h2>Budget</h2>
+            <h2 data-en="Budget" data-tr="Bütçe">Budget</h2>
+
             <div class="budget-content">
-                <div class="budget-header">$50,000 USD Requested</div>
+                <div
+                    class="budget-header"
+                    data-en="$50,000 USD Requested"
+                    data-tr="$50.000 USD Talep Ediliyor"
+                >
+                    $50,000 USD Requested
+                </div>
+
                 <div class="budget-items">
                     <div class="budget-item">
-                        <div class="label">Hardware</div>
-                        <div class="desc">Development workstations & equipment</div>
+                        <div class="label" data-en="Hardware" data-tr="Donanım">Hardware</div>
+                        <div class="desc" data-en="Development workstations & equipment" data-tr="Geliştirme iş istasyonları ve ekipmanları">Development workstations & equipment</div>
                     </div>
+
                     <div class="budget-item">
-                        <div class="label">Office</div>
-                        <div class="desc">Workspace & utilities</div>
+                        <div class="label" data-en="Office" data-tr="Ofis">Office</div>
+                        <div class="desc" data-en="Workspace & utilities" data-tr="Çalışma alanı ve giderler">Workspace & utilities</div>
                     </div>
+
                     <div class="budget-item">
-                        <div class="label">Localization</div>
-                        <div class="desc">Translation for 14 languages</div>
+                        <div class="label" data-en="Localization" data-tr="Yerelleştirme">Localization</div>
+                        <div class="desc" data-en="Translation for 14 languages" data-tr="14 dil için çeviri">Translation for 14 languages</div>
                     </div>
+
                     <div class="budget-item">
-                        <div class="label">Marketing</div>
-                        <div class="desc">Campaign & promotional materials</div>
+                        <div class="label" data-en="Marketing" data-tr="Pazarlama">Marketing</div>
+                        <div class="desc" data-en="Campaign & promotional materials" data-tr="Kampanya ve tanıtım materyalleri">Campaign & promotional materials</div>
                     </div>
+
                     <div class="budget-item">
-                        <div class="label">Composer</div>
-                        <div class="desc">Original soundtrack & audio</div>
+                        <div class="label" data-en="Composer" data-tr="Besteci">Composer</div>
+                        <div class="desc" data-en="Original soundtrack & audio" data-tr="Orijinal müzik ve ses">Original soundtrack & audio</div>
                     </div>
+
                     <div class="budget-item">
-                        <div class="label">Platform Accounts</div>
-                        <div class="desc">Steam, Epic, App Store, Google Play</div>
+                        <div class="label" data-en="Platform Accounts" data-tr="Platform Hesapları">Platform Accounts</div>
+                        <div class="desc" data-en="Steam, Epic, App Store, Google Play" data-tr="Steam, Epic, App Store, Google Play">Steam, Epic, App Store, Google Play</div>
                     </div>
+
                     <div class="budget-item">
-                        <div class="label">Software Tools</div>
-                        <div class="desc">Development & production software</div>
+                        <div class="label" data-en="Software Tools" data-tr="Yazılım Araçları">Software Tools</div>
+                        <div class="desc" data-en="Development & production software" data-tr="Geliştirme ve prodüksiyon yazılımları">Development & production software</div>
                     </div>
                 </div>
             </div>
@@ -992,32 +1266,73 @@
     <!-- Production Schedule Section -->
     <section id="schedule">
         <div class="container">
-            <h2>Production Schedule</h2>
+            <h2 data-en="Production Schedule" data-tr="Üretim Takvimi">Production Schedule</h2>
+
             <div class="schedule-content">
+
                 <div class="phase">
-                    <h3>Pre-Production</h3>
-                    <p>Pitch, funding acquisition, hardware setup, office establishment, and initial project documentation.</p>
+                    <h3 data-en="Pre-Production" data-tr="Ön Prodüksiyon">Pre-Production</h3>
+                    <p
+                        data-en="Pitch, funding acquisition, hardware setup, office establishment, and initial project documentation."
+                        data-tr="Sunum, fon sağlama, donanım kurulumu, ofisin oluşturulması ve ilk proje dokümantasyonu."
+                    >
+                        Pitch, funding acquisition, hardware setup, office establishment, and initial project documentation.
+                    </p>
                 </div>
+
                 <div class="phase">
-                    <h3>Core Development</h3>
-                    <p>Build core gameplay mechanics, school layout design, character movement systems, and environmental interactions.</p>
+                    <h3 data-en="Core Development" data-tr="Temel Geliştirme">Core Development</h3>
+                    <p
+                        data-en="Build core gameplay mechanics, school layout design, character movement systems, and environmental interactions."
+                        data-tr="Temel oynanış mekaniklerini, okul düzenini, karakter hareket sistemlerini ve çevresel etkileşimleri geliştirin."
+                    >
+                        Build core gameplay mechanics, school layout design, character movement systems, and environmental interactions.
+                    </p>
                 </div>
+
                 <div class="phase">
-                    <h3>Systems Development</h3>
-                    <p>Implement sludge enemy AI, Pomephone P1 Max E UI, document collection system, and game progression.</p>
+                    <h3 data-en="Systems Development" data-tr="Sistem Geliştirme">Systems Development</h3>
+                    <p
+                        data-en="Implement sludge enemy AI, Pomephone P1 Max E UI, document collection system, and game progression."
+                        data-tr="Çamur düşmanı yapay zekasını, Pomephone P1 Max E arayüzünü, belge toplama sistemini ve oyun ilerlemesini uygulayın."
+                    >
+                        Implement sludge enemy AI, Pomephone P1 Max E UI, document collection system, and game progression.
+                    </p>
                 </div>
+
                 <div class="phase">
-                    <h3>Polish & QA</h3>
-                    <p>Full playthroughs, bug fixing, performance optimization, and comprehensive testing across all platforms.</p>
+                    <h3 data-en="Polish & QA" data-tr="Son Rötuşlar ve QA">Polish & QA</h3>
+                    <p
+                        data-en="Full playthroughs, bug fixing, performance optimization, and comprehensive testing across all platforms."
+                        data-tr="Tam oyun testleri, hata düzeltmeleri, performans optimizasyonu ve tüm platformlarda kapsamlı testler."
+                    >
+                        Full playthroughs, bug fixing, performance optimization, and comprehensive testing across all platforms.
+                    </p>
                 </div>
+
                 <div class="phase">
-                    <h3>Launch Preparation</h3>
-                    <p>Demo release, Next Fest participation, platform certifications, and streamer outreach campaign.</p>
+                    <h3 data-en="Launch Preparation" data-tr="Lansman Hazırlığı">Launch Preparation</h3>
+                    <p
+                        data-en="Demo release, Next Fest participation, platform certifications, and streamer outreach campaign."
+                        data-tr="Demo sürümü, Next Fest katılımı, platform sertifikasyonları ve yayıncı iletişim kampanyası."
+                    >
+                        Demo release, Next Fest participation, platform certifications, and streamer outreach campaign.
+                    </p>
                 </div>
+
                 <div class="phase">
-                    <h3>Launch</h3>
-                    <p><strong>October 28, 2027</strong> — Global release across all platforms.</p>
+                    <h3 data-en="Launch" data-tr="Lansman">Launch</h3>
+                    <p>
+                        <strong data-en="October 28, 2027" data-tr="28 Ekim 2027">October 28, 2027</strong>
+                        <span
+                            data-en=" — Global release across all platforms."
+                            data-tr=" — Tüm platformlarda global çıkış."
+                        >
+                            — Global release across all platforms.
+                        </span>
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1025,39 +1340,194 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2>Get in Touch</h2>
+            <h2 data-en="Get in Touch" data-tr="İletişime Geçin">Get in Touch</h2>
+
             <div class="contact-links">
+
                 <div class="contact-link">
-                    <strong>Website</strong>
-                    <a href="https://yottascope.com" target="_blank">yottascope.com</a>
+                    <strong data-en="Website" data-tr="Web Sitesi">Website</strong>
+                    <a href="https://yottascope.com" target="_blank" rel="noopener noreferrer">yottascope.com</a>
                 </div>
+
                 <div class="contact-link">
-                    <strong>X (Twitter)</strong>
-                    <a href="https://twitter.com/yottascopedev" target="_blank">@yottascopedev</a>
+                    <strong data-en="X (Twitter)" data-tr="X (Twitter)">X (Twitter)</strong>
+                    <a href="https://twitter.com/yottascopedev" target="_blank" rel="noopener noreferrer">@yottascopedev</a>
                 </div>
+
                 <div class="contact-link">
-                    <strong>Instagram</strong>
-                    <a href="https://instagram.com/yottascope" target="_blank">@yottascope</a>
+                    <strong data-en="Instagram" data-tr="Instagram">Instagram</strong>
+                    <a href="https://instagram.com/yottascope" target="_blank" rel="noopener noreferrer">@yottascope</a>
                 </div>
+
                 <div class="contact-link">
-                    <strong>TikTok</strong>
-                    <a href="https://tiktok.com/@yottascope" target="_blank">@yottascope</a>
+                    <strong data-en="TikTok" data-tr="TikTok">TikTok</strong>
+                    <a href="https://tiktok.com/@yottascope" target="_blank" rel="noopener noreferrer">@yottascope</a>
                 </div>
+
                 <div class="contact-link">
-                    <strong>YouTube</strong>
-                    <a href="https://youtube.com/@yottascope" target="_blank">@yottascope</a>
+                    <strong data-en="YouTube" data-tr="YouTube">YouTube</strong>
+                    <a href="https://youtube.com/@yottascope" target="_blank" rel="noopener noreferrer">@yottascope</a>
                 </div>
+
                 <div class="contact-link">
-                    <strong>Email</strong>
+                    <strong data-en="Email" data-tr="E-posta">Email</strong>
                     <a href="mailto:yottascope@gmail.com">yottascope@gmail.com</a>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Yottascope. All rights reserved.</p>
+        <p
+            data-en="© 2026 Yottascope. All rights reserved."
+            data-tr="© 2026 Yottascope. Tüm hakları saklıdır."
+        >
+            © 2026 Yottascope. All rights reserved.
+        </p>
     </footer>
+
+    <script>
+        const body = document.body;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+        const langToggle = document.getElementById("langToggle");
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        let currentLanguage = localStorage.getItem("yottascope-language") || "en";
+        let currentTheme = localStorage.getItem("yottascope-theme") || "dark";
+
+        /* =========================
+           LANGUAGE
+        ========================= */
+
+        function updateLanguage() {
+            document.documentElement.lang = currentLanguage;
+
+            document.querySelectorAll("[data-en][data-tr]").forEach(element => {
+                element.textContent = element.dataset[currentLanguage];
+            });
+
+            langToggle.textContent = currentLanguage === "en" ? "TR" : "EN";
+
+            langToggle.setAttribute(
+                "aria-label",
+                currentLanguage === "en"
+                    ? "Switch to Turkish"
+                    : "Switch to English"
+            );
+
+            localStorage.setItem("yottascope-language", currentLanguage);
+        }
+
+        langToggle.addEventListener("click", () => {
+            currentLanguage = currentLanguage === "en" ? "tr" : "en";
+            updateLanguage();
+        });
+
+        /* =========================
+           THEME
+        ========================= */
+
+        function updateTheme() {
+            const isLight = currentTheme === "light";
+
+            body.classList.toggle("light", isLight);
+
+            themeIcon.textContent = isLight ? "☾" : "☀";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                isLight ? "Switch to dark mode" : "Switch to light mode"
+            );
+
+            localStorage.setItem("yottascope-theme", currentTheme);
+        }
+
+        themeToggle.addEventListener("click", () => {
+            currentTheme = currentTheme === "dark" ? "light" : "dark";
+            updateTheme();
+        });
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        function closeMenu() {
+            navLinks.classList.remove("open");
+            menuToggle.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open menu");
+        }
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuToggle.classList.toggle("open", isOpen);
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close menu" : "Open menu"
+            );
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", event => {
+            if (
+                !navLinks.contains(event.target) &&
+                !menuToggle.contains(event.target) &&
+                navLinks.classList.contains("open")
+            ) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 850) {
+                closeMenu();
+            }
+        });
+
+        /* =========================
+           ACTIVE NAV LINK
+        ========================= */
+
+        const sections = document.querySelectorAll("section[id]");
+        const links = document.querySelectorAll(".nav-links a");
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        links.forEach(link => {
+                            link.classList.remove("active");
+
+                            if (link.getAttribute("href") === `#${entry.target.id}`) {
+                                link.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            },
+            {
+                rootMargin: "-35% 0px -55% 0px"
+            }
+        );
+
+        sections.forEach(section => observer.observe(section));
+
+        /* =========================
+           INITIALIZE
+        ========================= */
+
+        updateLanguage();
+        updateTheme();
+    </script>
+
 </body>
-</html>
+    </html>
