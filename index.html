@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yottascope</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Yottascope | Game Studio</title>
+    <meta name="title" content="Yottascope | Game Studio">
+    <meta name="description" content="Yottascope is an independent game studio currently developing Escape from the School 1, a corporate horror game.">
+
+    <!-- Open Graph / Facebook / Discord preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yottascope.com/">
+    <meta property="og:title" content="Yottascope | Game Studio">
+    <meta property="og:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
+    <meta property="og:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yottascope.com/">
+    <meta property="twitter:title" content="Yottascope | Game Studio">
+    <meta property="twitter:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
+    <meta property="twitter:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -27,11 +51,17 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, var(--bg-dark) 0%, #0f0f1e 100%);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Focus indicators for accessibility */
+        a:focus-visible, .btn:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
         }
 
         /* Navigation */
@@ -77,7 +107,7 @@
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
@@ -109,24 +139,13 @@
             width: 100%;
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.85rem;
-            }
-        }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 2rem 4rem;
+            padding: 100px 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -152,21 +171,17 @@
         }
 
         .logo-container {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
         }
 
         .logo-container img {
-            max-width: 180px;
+            max-width: 160px;
             height: auto;
             filter: drop-shadow(0 0 30px rgba(88, 101, 242, 0.4));
         }
@@ -174,7 +189,7 @@
         .hero h1 {
             font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -184,11 +199,11 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             line-height: 1.8;
-            max-width: 700px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
@@ -196,101 +211,17 @@
 
         .hero-cta {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.25rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        /* Projects Section */
-        .projects {
-            padding: 8rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-            margin-bottom: 4rem;
-            letter-spacing: -1px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
-        .project-card:hover {
-            border-color: var(--blurple);
-            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-8px);
-            background: linear-gradient(135deg, rgba(26, 26, 46, 1) 0%, rgba(26, 26, 46, 0.6) 100%);
-        }
-
-        .project-card h2 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .project-card .subtitle {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
         .btn {
-            display: inline-block;
-            padding: 0.95rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2.2rem;
             background: linear-gradient(135deg, var(--blurple) 0%, var(--blurple-dark) 100%);
             color: var(--text-primary);
             text-decoration: none;
@@ -305,261 +236,937 @@
             box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+        .btn-outline {
+            background: rgba(26, 26, 46, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
             background: linear-gradient(135deg, var(--blurple-light) 0%, var(--accent) 100%);
             box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5), 0 0 20px rgba(0, 212, 255, 0.2);
             transform: translateY(-2px);
+            color: #fff;
         }
 
-        .btn:hover::before {
-            left: 100%;
+        .badge-dev {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            letter-spacing: -1px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
+            padding: 3.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            border-color: var(--blurple);
+            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .project-card h3 {
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card .subtitle {
+            color: var(--accent);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .dev-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffd700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffd700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .teaser-box {
+            background: rgba(10, 10, 20, 0.6);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0 2rem;
+            font-style: italic;
+            color: #d1d5db;
+        }
+
+        /* Devlog Signup */
+        .newsletter {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.08) 0%, rgba(0, 212, 255, 0.04) 100%);
+            text-align: center;
+            border-top: 1px solid rgba(88, 101, 242, 0.1);
+            border-bottom: 1px solid rgba(88, 101, 242, 0.1);
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            background: rgba(10, 10, 20, 0.8);
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         /* Contact Section */
         .contact {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.05) 0%, rgba(0, 212, 255, 0.03) 100%);
+            padding: 6rem 2rem;
             position: relative;
         }
 
         .contact-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-top: 3rem;
         }
 
         .contact-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(26, 26, 46, 0.3) 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
+            background: rgba(26, 26, 46, 0.5);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
             border: 1px solid rgba(88, 101, 242, 0.2);
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .contact-card:hover {
             border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+            transform: translateY(-4px);
         }
 
-        .contact-card h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.2rem;
-            font-size: 1.3rem;
-            font-weight: 700;
+        .contact-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        .contact-card a {
+        .contact-card span {
             color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
+            font-size: 0.9rem;
             word-break: break-all;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .contact-card a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--blurple-light);
-        }
-
-        .contact-card a:hover::after {
-            width: 100%;
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 26, 46, 0.5) 100%);
-            padding: 3rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 2.5rem 2rem;
             text-align: center;
             color: var(--text-secondary);
             border-top: 1px solid rgba(88, 101, 242, 0.1);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         footer a {
             color: var(--accent);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: var(--blurple-light);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        section {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .hero-container {
-            animation: fadeIn 1s ease-out;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects,
-            .contact {
-                padding: 4rem 1rem;
-            }
-
-            .project-card {
-                padding: 2rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-            }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.05rem; }
+            .section-title { font-size: 2.2rem; }
+            .newsletter-form { flex-direction: column; }
+            .project-card { padding: 2rem; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo">
+                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="36" height="36">
                 Yottascope
             </a>
             <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Our Game</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="logo-container">
-                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo">
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="badge-dev">Pre-Development Phase</div>
+                <div class="logo-container">
+                    <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="160" height="160" loading="eager">
+                </div>
+                <h1>Yottascope</h1>
+                <p>Game studio.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn">Explore Our Game</a>
+                    <a href="#contact" class="btn btn-outline">Contact</a>
+                </div>
             </div>
-            <h1>Yottascope</h1>
-            <p>Game studio.</p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn">Explore Our Game</a>
-                <a href="#contact" class="btn" style="background: linear-gradient(135deg, rgba(88, 101, 242, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%); border: 1px solid rgba(0, 212, 255, 0.4);">Contact</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">Our Game</h2>
-        <div class="projects-grid">
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2 class="section-title">Our Game</h2>
             <div class="project-card">
-                <h2>Escape from the School 1</h2>
-                <p class="subtitle">A corporate horror game</p>
+                <div class="dev-status">
+                    <span class="pulse-dot"></span> Pre-Production Phase
+                </div>
+                <h3>Escape from the School 1</h3>
+                <p class="subtitle">A Corporate Horror Game</p>
+                
                 <p>A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.</p>
-                <p><strong>Planned Launch Date: October 28, 2027</strong></p>
-                <a href="pitch-deck.html" class="btn">View Pitch Deck</a>
-            </div>
-        </div>
-    </section>
+                
+                <div class="teaser-box">
+                    "Sign the waiver. Enter the building. The prize money is real—if you survive until morning."
+                </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>Website</h3>
-                    <a href="https://yottascope.com" target="_blank">yottascope.com</a>
-                </div>
-                <div class="contact-card">
-                    <h3>Email</h3>
-                    <a href="mailto:yottascope@gmail.com">yottascope@gmail.com</a>
-                </div>
-                <div class="contact-card">
-                    <h3>X (Twitter)</h3>
-                    <a href="https://twitter.com/yottascopedev" target="_blank">@yottascopedev</a>
-                </div>
-                <div class="contact-card">
-                    <h3>Instagram</h3>
-                    <a href="https://instagram.com/yottascope" target="_blank">@yottascope</a>
-                </div>
-                <div class="contact-card">
-                    <h3>TikTok</h3>
-                    <a href="https://tiktok.com/@yottascope" target="_blank">@yottascope</a>
-                </div>
-                <div class="contact-card">
-                    <h3>YouTube</h3>
-                    <a href="https://youtube.com/@yottascope" target="_blank">@yottascope</a>
+                <p><strong>Planned Launch Date:</strong> October 28, 2027</p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="pitch-deck.html" class="btn">View Pitch Deck</a>
                 </div>
             </div>
+        </section>
+
+        <!-- Updates / Newsletter Signup -->
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h3>Follow Our Updates</h3>
+                <p>Subscribe for news on pitch deck updates, concept reveals, and playtest announcements.</p>
+                <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Yottascope updates!');">
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-grid">
+                    <a href="mailto:yottascope@gmail.com" class="contact-card">
+                        <h4>Email</h4>
+                        <span>yottascope@gmail.com</span>
+                    </a>
+                    <a href="https://twitter.com/yottascopedev" target="_blank" class="contact-card">
+                        <h4>X (Twitter)</h4>
+                        <span>@yottascopedev</span>
+                    </a>
+                    <a href="https://instagram.com/yottascope" target="_blank" class="contact-card">
+                        <h4>Instagram</h4>
+                        <span>@yottascope</span>
+                    </a>
+                    <a href="https://tiktok.com/@yottascope" target="_blank" class="contact-card">
+                        <h4>TikTok</h4>
+                        <span>@yottascope</span>
+                    </a>
+                    <a href="https://youtube.com/@yottascope" target="_blank" class="contact-card">
+                        <h4>YouTube</h4>
+                        <span>@yottascope</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Yottascope. All rights reserved. | <a href="pitch-deck.html">EFS1 Pitch Deck</a></p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Yottascope | Game Studio</title>
+    <meta name="title" content="Yottascope | Game Studio">
+    <meta name="description" content="Yottascope is an independent game studio currently developing Escape from the School 1, a corporate horror game.">
+
+    <!-- Open Graph / Facebook / Discord preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yottascope.com/">
+    <meta property="og:title" content="Yottascope | Game Studio">
+    <meta property="og:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
+    <meta property="og:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yottascope.com/">
+    <meta property="twitter:title" content="Yottascope | Game Studio">
+    <meta property="twitter:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
+    <meta property="twitter:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-secondary: #1a1a2e;
+            --blurple: #5865F2;
+            --blurple-dark: #4752c4;
+            --blurple-light: #7c8ff0;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b3c1;
+            --accent: #00d4ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f0f1e 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Focus indicators for accessibility */
+        a:focus-visible, .btn:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(88, 101, 242, 0.15);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo img {
+            height: 36px;
+            width: auto;
+            filter: drop-shadow(0 0 8px rgba(88, 101, 242, 0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blurple), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blurple);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(88, 101, 242, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            margin-bottom: 2.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .logo-container img {
+            max-width: 160px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(88, 101, 242, 0.4));
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2.2rem;
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--blurple-dark) 100%);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .btn-outline {
+            background: rgba(26, 26, 46, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--blurple-light) 0%, var(--accent) 100%);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5), 0 0 20px rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .badge-dev {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            letter-spacing: -1px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
+            padding: 3.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            border-color: var(--blurple);
+            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .project-card h3 {
+            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card .subtitle {
+            color: var(--accent);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .dev-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffd700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffd700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .teaser-box {
+            background: rgba(10, 10, 20, 0.6);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0 2rem;
+            font-style: italic;
+            color: #d1d5db;
+        }
+
+        /* Devlog Signup */
+        .newsletter {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.08) 0%, rgba(0, 212, 255, 0.04) 100%);
+            text-align: center;
+            border-top: 1px solid rgba(88, 101, 242, 0.1);
+            border-bottom: 1px solid rgba(88, 101, 242, 0.1);
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            background: rgba(10, 10, 20, 0.8);
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(26, 26, 46, 0.5);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .contact-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-card span {
+            color: var(--accent);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(88, 101, 242, 0.1);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.05rem; }
+            .section-title { font-size: 2.2rem; }
+            .newsletter-form { flex-direction: column; }
+            .project-card { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="36" height="36">
+                Yottascope
+            </a>
+            <ul class="nav-links">
+                <li><a href="#projects">Our Game</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </section>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="badge-dev">Pre-Development Phase</div>
+                <div class="logo-container">
+                    <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="160" height="160" loading="eager">
+                </div>
+                <h1>Yottascope</h1>
+                <p>Game studio.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn">Explore Our Game</a>
+                    <a href="#contact" class="btn btn-outline">Contact</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2 class="section-title">Our Game</h2>
+            <div class="project-card">
+                <div class="dev-status">
+                    <span class="pulse-dot"></span> Pre-Production Phase
+                </div>
+                <h3>Escape from the School 1</h3>
+                <p class="subtitle">A Corporate Horror Game</p>
+                
+                <p>A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.</p>
+                
+                <div class="teaser-box">
+                    "Sign the waiver. Enter the building. The prize money is real—if you survive until morning."
+                </div>
+
+                <p><strong>Planned Launch Date:</strong> October 28, 2027</p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="pitch-deck.html" class="btn">View Pitch Deck</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updates / Newsletter Signup -->
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h3>Follow Our Updates</h3>
+                <p>Subscribe for news on pitch deck updates, concept reveals, and playtest announcements.</p>
+                <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Yottascope updates!');">
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-grid">
+                    <a href="mailto:yottascope@gmail.com" class="contact-card">
+                        <h4>Email</h4>
+                        <span>yottascope@gmail.com</span>
+                    </a>
+                    <a href="https://twitter.com/yottascopedev" target="_blank" class="contact-card">
+                        <h4>X (Twitter)</h4>
+                        <span>@yottascopedev</span>
+                    </a>
+                    <a href="https://instagram.com/yottascope" target="_blank" class="contact-card">
+                        <h4>Instagram</h4>
+                        <span>@yottascope</span>
+                    </a>
+                    <a href="https://tiktok.com/@yottascope" target="_blank" class="contact-card">
+                        <h4>TikTok</h4>
+                        <span>@yottascope</span>
+                    </a>
+                    <a href="https://youtube.com/@yottascope" target="_blank" class="contact-card">
+                        <h4>YouTube</h4>
+                        <span>@yottascope</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
