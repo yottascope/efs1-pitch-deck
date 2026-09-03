@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
+
     <title>Yottascope | Game Studio</title>
-    <meta name="title" content="Yottascope | Game Studio">
     <meta name="description" content="Yottascope is an independent game studio currently developing Escape from the School 1, a corporate horror game.">
 
-    <!-- Open Graph / Facebook / Discord preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yottascope.com/">
     <meta property="og:title" content="Yottascope | Game Studio">
     <meta property="og:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
-    <meta property="og:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
+    <meta property="og:image" content="https://yottascope.com/yottascopelogo.jpeg">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://yottascope.com/">
     <meta property="twitter:title" content="Yottascope | Game Studio">
     <meta property="twitter:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
-    <meta property="twitter:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
+    <meta property="twitter:image" content="https://yottascope.com/yottascopelogo.jpeg">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,434 +31,619 @@
         }
 
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-secondary: #1a1a2e;
-            --blurple: #5865F2;
-            --blurple-dark: #4752c4;
-            --blurple-light: #7c8ff0;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b3c1;
-            --accent: #00d4ff;
+            --bg: #0b0b0d;
+            --bg-secondary: #121216;
+            --card: #17171c;
+            --card-hover: #1c1c22;
+            --text: #f5f5f7;
+            --text-secondary: #a5a5ad;
+            --border: rgba(255, 255, 255, 0.08);
+
+            --accent: #5865f2;
+            --accent-hover: #6d78ff;
+            --accent-soft: rgba(88, 101, 242, 0.12);
+
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
+
+        body.light {
+            --bg: #f7f7f9;
+            --bg-secondary: #ffffff;
+            --card: #ffffff;
+            --card-hover: #f3f3f6;
+            --text: #18181b;
+            --text-secondary: #65656d;
+            --border: rgba(0, 0, 0, 0.09);
+
+            --accent: #5865f2;
+            --accent-hover: #4752c4;
+            --accent-soft: rgba(88, 101, 242, 0.09);
+
+            --shadow: rgba(0, 0, 0, 0.08);
         }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f0f1e 100%);
-            color: var(--text-primary);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* Focus indicators for accessibility */
-        a:focus-visible, .btn:focus-visible, button:focus-visible {
+        a,
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
             outline: 2px solid var(--accent);
             outline-offset: 4px;
         }
 
-        /* Navigation */
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(88, 101, 242, 0.15);
             z-index: 1000;
-            padding: 1rem 2rem;
+
+            background: var(--bg);
+            opacity: 0.96;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
+            height: 72px;
             margin: 0 auto;
+            padding: 0 2rem;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .nav-logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
-            letter-spacing: -0.5px;
+
+            text-decoration: none;
         }
 
         .nav-logo img {
-            height: 36px;
-            width: auto;
-            filter: drop-shadow(0 0 8px rgba(88, 101, 242, 0.3));
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            align-items: center;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--blurple), var(--accent));
-            transition: width 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--blurple);
+            color: var(--accent);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        /* Controls */
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* Hero Section */
+        .control-btn {
+            height: 36px;
+            padding: 0 0.75rem;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            background: var(--card);
+            color: var(--text-secondary);
+
+            cursor: pointer;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .control-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger */
+
+        .hamburger {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            background: var(--card);
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 19px;
+            height: 2px;
+
+            background: var(--text);
+            border-radius: 2px;
+
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
         .hero {
             min-height: 100vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 2rem 4rem;
+
+            padding: 110px 2rem 5rem;
+
             position: relative;
             overflow: hidden;
         }
 
         .hero::before {
             content: '';
+
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(88, 101, 242, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+
+            width: 500px;
+            height: 500px;
+
+            top: 10%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: var(--accent);
+            opacity: 0.055;
+
+            filter: blur(110px);
+            border-radius: 50%;
+
             pointer-events: none;
         }
 
         .hero-container {
-            max-width: 900px;
             width: 100%;
+            max-width: 850px;
+
             text-align: center;
+
             position: relative;
             z-index: 1;
         }
 
-        .logo-container {
-            margin-bottom: 2.5rem;
-            animation: float 3s ease-in-out infinite;
+        .badge-dev {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 0.35rem 0.8rem;
+
+            border-radius: 999px;
+
+            background: var(--accent-soft);
+            color: var(--accent);
+
+            border: 1px solid rgba(88, 101, 242, 0.25);
+
+            font-size: 0.78rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+
+            margin-bottom: 2rem;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+        .logo-container {
+            margin-bottom: 2.2rem;
+
+            animation: float 4s ease-in-out infinite;
         }
 
         .logo-container img {
-            max-width: 160px;
-            height: auto;
-            filter: drop-shadow(0 0 30px rgba(88, 101, 242, 0.4));
+            width: 180px;
+            height: 180px;
+
+            object-fit: contain;
+
+            border-radius: 28px;
+
+            filter: drop-shadow(
+                0 15px 35px rgba(88, 101, 242, 0.2)
+            );
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-            letter-spacing: -1px;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .hero p {
-            font-size: 1.25rem;
             color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+
+            font-size: 1.15rem;
+            font-weight: 400;
+
+            margin-bottom: 2.2rem;
         }
 
         .hero-cta {
             display: flex;
-            gap: 1.25rem;
             justify-content: center;
+            align-items: center;
+
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
+
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            padding: 0.95rem 2.2rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--blurple-dark) 100%);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
-        }
 
-        .btn-outline {
-            background: rgba(26, 26, 46, 0.6);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 0.85rem 1.5rem;
+
+            border-radius: 8px;
+
+            background: var(--accent);
+            color: #fff;
+
+            border: 1px solid var(--accent);
+
+            text-decoration: none;
+
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, var(--blurple-light) 0%, var(--accent) 100%);
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5), 0 0 20px rgba(0, 212, 255, 0.2);
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+
             transform: translateY(-2px);
-            color: #fff;
+
+            box-shadow: 0 8px 24px rgba(88, 101, 242, 0.22);
         }
 
-        .badge-dev {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.1);
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-soft);
             color: var(--accent);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            padding: 0.3rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-color: var(--accent);
+
+            box-shadow: none;
         }
 
-        /* Projects Section */
+        /* =========================
+           PROJECT
+        ========================= */
+
         .projects {
-            padding: 6rem 2rem;
-            max-width: 1200px;
+            max-width: 1050px;
             margin: 0 auto;
-            position: relative;
+
+            padding: 6rem 2rem;
         }
 
         .section-title {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+
             font-weight: 800;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
             text-align: center;
-            margin-bottom: 3.5rem;
-            letter-spacing: -1px;
+
+            color: var(--text);
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+
+            display: block;
+
+            width: 42px;
+            height: 3px;
+
+            margin: 1rem auto 0;
+
+            background: var(--accent);
+
+            border-radius: 999px;
         }
 
         .project-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3.5rem;
+            background: var(--card);
+
+            padding: 3rem;
+
             border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+
+            border: 1px solid var(--border);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .project-card:hover {
-            border-color: var(--blurple);
-            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.25);
             transform: translateY(-4px);
-        }
 
-        .project-card h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+            border-color: rgba(88, 101, 242, 0.35);
 
-        .project-card .subtitle {
-            color: var(--accent);
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            box-shadow: 0 20px 50px var(--shadow);
         }
 
         .dev-status {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #ffd700;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+
+            color: var(--accent);
+
+            font-size: 0.82rem;
+            font-weight: 700;
+
+            margin-bottom: 1.2rem;
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #ffd700;
+            width: 7px;
+            height: 7px;
+
+            background: var(--accent);
+
             border-radius: 50%;
-            box-shadow: 0 0 10px #ffd700;
+
+            box-shadow: 0 0 10px rgba(88, 101, 242, 0.7);
+
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.2); }
-            100% { opacity: 1; transform: scale(1); }
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.45;
+                transform: scale(1.2);
+            }
         }
 
-        .teaser-box {
-            background: rgba(10, 10, 20, 0.6);
-            border-left: 3px solid var(--accent);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0 2rem;
-            font-style: italic;
-            color: #d1d5db;
+        .project-card h3 {
+            color: var(--text);
+
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
+            line-height: 1.2;
+
+            margin-bottom: 0.5rem;
+
+            letter-spacing: -1px;
         }
 
-        /* Devlog Signup */
-        .newsletter {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.08) 0%, rgba(0, 212, 255, 0.04) 100%);
-            text-align: center;
-            border-top: 1px solid rgba(88, 101, 242, 0.1);
-            border-bottom: 1px solid rgba(88, 101, 242, 0.1);
-        }
+        .project-card .subtitle {
+            color: var(--accent);
 
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+            font-size: 1rem;
+            font-weight: 600;
 
-        .newsletter h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .newsletter p {
-            color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
 
-        .newsletter-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 480px;
-            margin: 0 auto;
+        .project-card p {
+            color: var(--text-secondary);
+
+            font-size: 1rem;
+            line-height: 1.8;
+
+            margin-bottom: 1.3rem;
         }
 
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.85rem 1.2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(88, 101, 242, 0.3);
-            background: rgba(10, 10, 20, 0.8);
-            color: #fff;
-            font-size: 0.95rem;
+        .project-card strong {
+            color: var(--text);
         }
 
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--accent);
+        .teaser-box {
+            background: var(--bg-secondary);
+
+            border-left: 3px solid var(--accent);
+
+            padding: 1.2rem 1.4rem;
+
+            border-radius: 0 8px 8px 0;
+
+            margin: 1.5rem 0 2rem;
+
+            color: var(--text-secondary);
+
+            font-style: italic;
         }
 
-        /* Contact Section */
+        /* =========================
+           CONTACT
+        ========================= */
+
         .contact {
             padding: 6rem 2rem;
-            position: relative;
         }
 
         .contact-container {
-            max-width: 1200px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.8rem;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 1rem;
+
             margin-top: 3rem;
         }
 
         .contact-card {
-            background: rgba(26, 26, 46, 0.5);
-            padding: 2rem 1.5rem;
+            min-height: 135px;
+
+            padding: 1.5rem 1rem;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
             border-radius: 12px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
+
             text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+
             text-decoration: none;
+
             display: flex;
             flex-direction: column;
+
             align-items: center;
             justify-content: center;
+
+            transition: 0.25s ease;
         }
 
         .contact-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
+
+            background: var(--card-hover);
+
+            border-color: rgba(88, 101, 242, 0.4);
         }
 
         .contact-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            color: var(--text);
+
+            font-size: 0.95rem;
+
+            margin-bottom: 0.4rem;
         }
 
         .contact-card span {
             color: var(--accent);
-            font-size: 0.9rem;
-            word-break: break-all;
+
+            font-size: 0.78rem;
+
+            word-break: break-word;
         }
 
-        /* Footer */
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 2.5rem 2rem;
+            padding: 2rem;
+
             text-align: center;
+
             color: var(--text-secondary);
-            border-top: 1px solid rgba(88, 101, 242, 0.1);
-            font-size: 0.9rem;
+
+            border-top: 1px solid var(--border);
+
+            font-size: 0.8rem;
         }
 
         footer a {
@@ -471,706 +651,834 @@
             text-decoration: none;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.6rem; }
-            .hero p { font-size: 1.05rem; }
-            .section-title { font-size: 2.2rem; }
-            .newsletter-form { flex-direction: column; }
-            .project-card { padding: 2rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="36" height="36">
-                Yottascope
-            </a>
-            <ul class="nav-links">
-                <li><a href="#projects">Our Game</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="badge-dev">Pre-Development Phase</div>
-                <div class="logo-container">
-                    <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="160" height="160" loading="eager">
-                </div>
-                <h1>Yottascope</h1>
-                <p>Game studio.</p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn">Explore Our Game</a>
-                    <a href="#contact" class="btn btn-outline">Contact</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <h2 class="section-title">Our Game</h2>
-            <div class="project-card">
-                <div class="dev-status">
-                    <span class="pulse-dot"></span> Pre-Production Phase
-                </div>
-                <h3>Escape from the School 1</h3>
-                <p class="subtitle">A Corporate Horror Game</p>
-                
-                <p>A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.</p>
-                
-                <div class="teaser-box">
-                    "Sign the waiver. Enter the building. The prize money is real—if you survive until morning."
-                </div>
-
-                <p><strong>Planned Launch Date:</strong> October 28, 2027</p>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="pitch-deck.html" class="btn">View Pitch Deck</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Updates / Newsletter Signup -->
-        <section class="newsletter">
-            <div class="newsletter-container">
-                <h3>Follow Our Updates</h3>
-                <p>Subscribe for news on pitch deck updates, concept reveals, and playtest announcements.</p>
-                <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Yottascope updates!');">
-                    <input type="email" placeholder="Enter your email address" required aria-label="Email address">
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <h2 class="section-title">Contact</h2>
-                <div class="contact-grid">
-                    <a href="mailto:yottascope@gmail.com" class="contact-card">
-                        <h4>Email</h4>
-                        <span>yottascope@gmail.com</span>
-                    </a>
-                    <a href="https://twitter.com/yottascopedev" target="_blank" class="contact-card">
-                        <h4>X (Twitter)</h4>
-                        <span>@yottascopedev</span>
-                    </a>
-                    <a href="https://instagram.com/yottascope" target="_blank" class="contact-card">
-                        <h4>Instagram</h4>
-                        <span>@yottascope</span>
-                    </a>
-                    <a href="https://tiktok.com/@yottascope" target="_blank" class="contact-card">
-                        <h4>TikTok</h4>
-                        <span>@yottascope</span>
-                    </a>
-                    <a href="https://youtube.com/@yottascope" target="_blank" class="contact-card">
-                        <h4>YouTube</h4>
-                        <span>@yottascope</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Yottascope. All rights reserved. | <a href="pitch-deck.html">EFS1 Pitch Deck</a></p>
-    </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>Yottascope | Game Studio</title>
-    <meta name="title" content="Yottascope | Game Studio">
-    <meta name="description" content="Yottascope is an independent game studio currently developing Escape from the School 1, a corporate horror game.">
-
-    <!-- Open Graph / Facebook / Discord preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yottascope.com/">
-    <meta property="og:title" content="Yottascope | Game Studio">
-    <meta property="og:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
-    <meta property="og:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yottascope.com/">
-    <meta property="twitter:title" content="Yottascope | Game Studio">
-    <meta property="twitter:description" content="Developing Escape from the School 1 — A corporate horror game. Planned release October 2027.">
-    <meta property="twitter:image" content="https://yottascope.com/copilot_image_1784491690793.jpeg">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        footer a:hover {
+            text-decoration: underline;
         }
 
-        :root {
-            --bg-dark: #0a0a0a;
-            --bg-secondary: #1a1a2e;
-            --blurple: #5865F2;
-            --blurple-dark: #4752c4;
-            --blurple-light: #7c8ff0;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b3c1;
-            --accent: #00d4ff;
-        }
+        /* =========================
+           MOBILE
+        ========================= */
 
-        html {
-            scroll-behavior: smooth;
-        }
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f0f1e 100%);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Focus indicators for accessibility */
-        a:focus-visible, .btn:focus-visible, button:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 4px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(88, 101, 242, 0.15);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-logo img {
-            height: 36px;
-            width: auto;
-            filter: drop-shadow(0 0 8px rgba(88, 101, 242, 0.3));
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--blurple), var(--accent));
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--blurple);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(88, 101, 242, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 900px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-container {
-            margin-bottom: 2.5rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .logo-container img {
-            max-width: 160px;
-            height: auto;
-            filter: drop-shadow(0 0 30px rgba(88, 101, 242, 0.4));
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1.25rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            padding: 0.95rem 2.2rem;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--blurple-dark) 100%);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
-        }
-
-        .btn-outline {
-            background: rgba(26, 26, 46, 0.6);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, var(--blurple-light) 0%, var(--accent) 100%);
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5), 0 0 20px rgba(0, 212, 255, 0.2);
-            transform: translateY(-2px);
-            color: #fff;
-        }
-
-        .badge-dev {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            padding: 0.3rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            letter-spacing: -1px;
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(26, 26, 46, 0.4) 100%);
-            padding: 3.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-card:hover {
-            border-color: var(--blurple);
-            box-shadow: 0 20px 60px rgba(88, 101, 242, 0.25);
-            transform: translateY(-4px);
-        }
-
-        .project-card h3 {
-            background: linear-gradient(135deg, var(--blurple) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card .subtitle {
-            color: var(--accent);
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .dev-status {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #ffd700;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #ffd700;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ffd700;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.2); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .teaser-box {
-            background: rgba(10, 10, 20, 0.6);
-            border-left: 3px solid var(--accent);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0 2rem;
-            font-style: italic;
-            color: #d1d5db;
-        }
-
-        /* Devlog Signup */
-        .newsletter {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.08) 0%, rgba(0, 212, 255, 0.04) 100%);
-            text-align: center;
-            border-top: 1px solid rgba(88, 101, 242, 0.1);
-            border-bottom: 1px solid rgba(88, 101, 242, 0.1);
-        }
-
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .newsletter h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .newsletter p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.85rem 1.2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(88, 101, 242, 0.3);
-            background: rgba(10, 10, 20, 0.8);
-            color: #fff;
-            font-size: 0.95rem;
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.8rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(26, 26, 46, 0.5);
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
-            text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .contact-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-card span {
-            color: var(--accent);
-            font-size: 0.9rem;
-            word-break: break-all;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            border-top: 1px solid rgba(88, 101, 242, 0.1);
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
+            .contact-card:last-child {
+                grid-column: span 2;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.6rem; }
-            .hero p { font-size: 1.05rem; }
-            .section-title { font-size: 2.2rem; }
-            .newsletter-form { flex-direction: column; }
-            .project-card { padding: 2rem; }
+
+            .nav-container {
+                height: 66px;
+                padding: 0 1rem;
+            }
+
+            .nav-logo img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .nav-right {
+                gap: 0.5rem;
+            }
+
+            /* Hide desktop controls */
+
+            .controls {
+                display: none;
+            }
+
+            /* Hamburger */
+
+            .hamburger {
+                display: flex;
+            }
+
+            /* Mobile dropdown */
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 66px;
+                left: 0;
+                right: 0;
+
+                padding: 0.75rem 1rem 1rem;
+
+                background: var(--bg-secondary);
+
+                border-bottom: 1px solid var(--border);
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0.25rem;
+
+                box-shadow: 0 15px 30px var(--shadow);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+
+                padding: 0.9rem 1rem;
+
+                border-radius: 8px;
+
+                font-size: 0.95rem;
+            }
+
+            .nav-links li a:hover {
+                background: var(--accent-soft);
+            }
+
+            /* Mobile controls */
+
+            .mobile-controls {
+                display: flex;
+
+                padding-top: 0.75rem;
+
+                margin-top: 0.5rem;
+
+                border-top: 1px solid var(--border);
+
+                gap: 0.5rem;
+            }
+
+            .mobile-controls .control-btn {
+                flex: 1;
+            }
+
+            .hero {
+                min-height: 90vh;
+
+                padding: 100px 1.25rem 4rem;
+            }
+
+            .logo-container img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .projects {
+                padding: 5rem 1.25rem;
+            }
+
+            .project-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact {
+                padding: 5rem 1.25rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-controls {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hero {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .logo-container img {
+                width: 125px;
+                height: 125px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card:last-child {
+                grid-column: auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Navigation -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="36" height="36">
-                Yottascope
+
+            <a href="#" class="nav-logo" aria-label="Yottascope Home">
+                <img
+                    src="yottascopelogo.jpeg"
+                    alt="Yottascope Logo"
+                    width="42"
+                    height="42"
+                >
             </a>
-            <ul class="nav-links">
-                <li><a href="#projects">Our Game</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+            <div class="nav-right">
+
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a
+                            href="#projects"
+                            data-en="Our Game"
+                            data-tr="Oyunumuz"
+                        >
+                            Our Game
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#contact"
+                            data-en="Contact"
+                            data-tr="İletişim"
+                        >
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="mobile-controls">
+
+                        <button
+                            class="control-btn"
+                            id="themeMobile"
+                            type="button"
+                        >
+                            🌙 Dark
+                        </button>
+
+                        <button
+                            class="control-btn"
+                            id="languageMobile"
+                            type="button"
+                        >
+                            🇹🇷 TR
+                        </button>
+
+                    </li>
+
+                </ul>
+
+                <!-- Desktop controls -->
+
+                <div class="controls">
+
+                    <button
+                        class="control-btn"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle theme"
+                    >
+                        🌙 <span id="themeText">Dark</span>
+                    </button>
+
+                    <button
+                        class="control-btn"
+                        id="languageToggle"
+                        type="button"
+                        aria-label="Change language"
+                    >
+                        🇹🇷 TR
+                    </button>
+
+                </div>
+
+                <!-- Mobile hamburger -->
+
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
         </div>
     </nav>
 
-    <!-- Main Content -->
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
     <main>
-        <!-- Hero Section -->
+
+        <!-- HERO -->
+
         <section class="hero">
+
             <div class="hero-container">
-                <div class="badge-dev">Pre-Development Phase</div>
+
+                <div
+                    class="badge-dev"
+                    data-en="Pre-Development Phase"
+                    data-tr="Ön Geliştirme Aşaması"
+                >
+                    Pre-Development Phase
+                </div>
+
                 <div class="logo-container">
-                    <img src="copilot_image_1784491690793.jpeg" alt="Yottascope Logo" width="160" height="160" loading="eager">
+
+                    <img
+                        src="yottascopelogo.jpeg"
+                        alt="Yottascope Logo"
+                        width="180"
+                        height="180"
+                        loading="eager"
+                    >
+
                 </div>
-                <h1>Yottascope</h1>
-                <p>Game studio.</p>
+
+                <p
+                    data-en="Independent game studio."
+                    data-tr="Bağımsız oyun stüdyosu."
+                >
+                    Independent game studio.
+                </p>
+
                 <div class="hero-cta">
-                    <a href="#projects" class="btn">Explore Our Game</a>
-                    <a href="#contact" class="btn btn-outline">Contact</a>
-                </div>
-            </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <h2 class="section-title">Our Game</h2>
-            <div class="project-card">
-                <div class="dev-status">
-                    <span class="pulse-dot"></span> Pre-Production Phase
-                </div>
-                <h3>Escape from the School 1</h3>
-                <p class="subtitle">A Corporate Horror Game</p>
-                
-                <p>A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.</p>
-                
-                <div class="teaser-box">
-                    "Sign the waiver. Enter the building. The prize money is real—if you survive until morning."
-                </div>
-
-                <p><strong>Planned Launch Date:</strong> October 28, 2027</p>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="pitch-deck.html" class="btn">View Pitch Deck</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Updates / Newsletter Signup -->
-        <section class="newsletter">
-            <div class="newsletter-container">
-                <h3>Follow Our Updates</h3>
-                <p>Subscribe for news on pitch deck updates, concept reveals, and playtest announcements.</p>
-                <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Yottascope updates!');">
-                    <input type="email" placeholder="Enter your email address" required aria-label="Email address">
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <h2 class="section-title">Contact</h2>
-                <div class="contact-grid">
-                    <a href="mailto:yottascope@gmail.com" class="contact-card">
-                        <h4>Email</h4>
-                        <span>yottascope@gmail.com</span>
+                    <a
+                        href="#projects"
+                        class="btn"
+                        data-en="Explore Our Game"
+                        data-tr="Oyunumuzu Keşfet"
+                    >
+                        Explore Our Game
                     </a>
-                    <a href="https://twitter.com/yottascopedev" target="_blank" class="contact-card">
+
+                    <a
+                        href="#contact"
+                        class="btn btn-outline"
+                        data-en="Contact"
+                        data-tr="İletişim"
+                    >
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GAME
+        ========================= -->
+
+        <section id="projects" class="projects">
+
+            <h2
+                class="section-title"
+                data-en="Our Game"
+                data-tr="Oyunumuz"
+            >
+                Our Game
+            </h2>
+
+            <div class="project-card">
+
+                <div class="dev-status">
+
+                    <span class="pulse-dot"></span>
+
+                    <span
+                        data-en="Pre-Production Phase"
+                        data-tr="Ön Yapım Aşaması"
+                    >
+                        Pre-Production Phase
+                    </span>
+
+                </div>
+
+                <h3>
+                    Escape from the School 1
+                </h3>
+
+                <p
+                    class="subtitle"
+                    data-en="A Corporate Horror Game"
+                    data-tr="Kurumsal Bir Korku Oyunu"
+                >
+                    A Corporate Horror Game
+                </p>
+
+                <p
+                    data-en="A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars."
+                    data-tr="Gizemli bir şirketin, bir milyon dolar ödül vaadiyle sizi terk edilmiş bir okula çektiği kurumsal bir korku oyunu."
+                >
+                    A corporate horror game where a mysterious company lures you into an abandoned school with the promise of one million dollars.
+                </p>
+
+                <div class="teaser-box">
+
+                    <span
+                        data-en='"Sign the waiver. Enter the building. The prize money is real—if you survive until morning."'
+                        data-tr='"Feragatnameyi imzala. Binaya gir. Ödül parası gerçek—sabaha kadar hayatta kalabilirsen."'
+                    >
+                        "Sign the waiver. Enter the building. The prize money is real—if you survive until morning."
+                    </span>
+
+                </div>
+
+                <p>
+
+                    <strong
+                        data-en="Planned Launch Date:"
+                        data-tr="Planlanan Çıkış Tarihi:"
+                    >
+                        Planned Launch Date:
+                    </strong>
+
+                    October 28, 2027
+
+                </p>
+
+                <div style="margin-top: 2rem;">
+
+                    <a
+                        href="pitch-deck.html"
+                        class="btn"
+                        data-en="View Pitch Deck"
+                        data-tr="Tanıtım Dosyasını Görüntüle"
+                    >
+                        View Pitch Deck
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section id="contact" class="contact">
+
+            <div class="contact-container">
+
+                <h2
+                    class="section-title"
+                    data-en="Contact"
+                    data-tr="İletişim"
+                >
+                    Contact
+                </h2>
+
+                <div class="contact-grid">
+
+                    <a
+                        href="mailto:yottascope@gmail.com"
+                        class="contact-card"
+                    >
+                        <h4
+                            data-en="Email"
+                            data-tr="E-posta"
+                        >
+                            Email
+                        </h4>
+
+                        <span>
+                            yottascope@gmail.com
+                        </span>
+                    </a>
+
+                    <a
+                        href="https://twitter.com/yottascopedev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card"
+                    >
                         <h4>X (Twitter)</h4>
                         <span>@yottascopedev</span>
                     </a>
-                    <a href="https://instagram.com/yottascope" target="_blank" class="contact-card">
+
+                    <a
+                        href="https://instagram.com/yottascope"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card"
+                    >
                         <h4>Instagram</h4>
                         <span>@yottascope</span>
                     </a>
-                    <a href="https://tiktok.com/@yottascope" target="_blank" class="contact-card">
+
+                    <a
+                        href="https://tiktok.com/@yottascope"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card"
+                    >
                         <h4>TikTok</h4>
                         <span>@yottascope</span>
                     </a>
-                    <a href="https://youtube.com/@yottascope" target="_blank" class="contact-card">
+
+                    <a
+                        href="https://youtube.com/@yottascope"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card"
+                    >
                         <h4>YouTube</h4>
                         <span>@yottascope</span>
                     </a>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
-    <!-- Footer -->
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
-        <p>&copy; 2026 Yottascope. All rights reserved. | <a href="pitch-deck.html">EFS1 Pitch Deck</a></p>
+
+        <p>
+
+            © 2026 Yottascope.
+
+            <span
+                data-en="All rights reserved."
+                data-tr="Tüm hakları saklıdır."
+            >
+                All rights reserved.
+            </span>
+
+            |
+
+            <a
+                href="pitch-deck.html"
+                data-en="EFS1 Pitch Deck"
+                data-tr="EFS1 Tanıtım Dosyası"
+            >
+                EFS1 Pitch Deck
+            </a>
+
+        </p>
+
     </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           THEME
+        ========================= */
+
+        const body = document.body;
+
+        const themeToggle =
+            document.getElementById('themeToggle');
+
+        const themeMobile =
+            document.getElementById('themeMobile');
+
+        function updateThemeButtons() {
+
+            const isLight =
+                body.classList.contains('light');
+
+            if (isLight) {
+
+                themeToggle.innerHTML =
+                    '☀️ <span id="themeText">Light</span>';
+
+                themeMobile.textContent =
+                    '☀️ Light';
+
+            } else {
+
+                themeToggle.innerHTML =
+                    '🌙 <span id="themeText">Dark</span>';
+
+                themeMobile.textContent =
+                    '🌙 Dark';
+            }
+        }
+
+        function toggleTheme() {
+
+            body.classList.toggle('light');
+
+            const theme =
+                body.classList.contains('light')
+                    ? 'light'
+                    : 'dark';
+
+            localStorage.setItem(
+                'yottascope-theme',
+                theme
+            );
+
+            updateThemeButtons();
+        }
+
+        themeToggle.addEventListener(
+            'click',
+            toggleTheme
+        );
+
+        themeMobile.addEventListener(
+            'click',
+            toggleTheme
+        );
+
+        const savedTheme =
+            localStorage.getItem(
+                'yottascope-theme'
+            );
+
+        if (savedTheme === 'light') {
+            body.classList.add('light');
+        }
+
+        updateThemeButtons();
+
+
+        /* =========================
+           LANGUAGE
+        ========================= */
+
+        const languageToggle =
+            document.getElementById('languageToggle');
+
+        const languageMobile =
+            document.getElementById('languageMobile');
+
+        let currentLanguage =
+            localStorage.getItem(
+                'yottascope-language'
+            ) || 'en';
+
+        function updateLanguage() {
+
+            document.documentElement.lang =
+                currentLanguage;
+
+            document
+                .querySelectorAll('[data-en]')
+                .forEach(element => {
+
+                    element.textContent =
+                        element.dataset[currentLanguage];
+
+                });
+
+            if (currentLanguage === 'en') {
+
+                languageToggle.textContent =
+                    '🇹🇷 TR';
+
+                languageMobile.textContent =
+                    '🇹🇷 TR';
+
+            } else {
+
+                languageToggle.textContent =
+                    '🇬🇧 EN';
+
+                languageMobile.textContent =
+                    '🇬🇧 EN';
+            }
+
+            localStorage.setItem(
+                'yottascope-language',
+                currentLanguage
+            );
+        }
+
+        function toggleLanguage() {
+
+            currentLanguage =
+                currentLanguage === 'en'
+                    ? 'tr'
+                    : 'en';
+
+            updateLanguage();
+        }
+
+        languageToggle.addEventListener(
+            'click',
+            toggleLanguage
+        );
+
+        languageMobile.addEventListener(
+            'click',
+            toggleLanguage
+        );
+
+        updateLanguage();
+
+
+        /* =========================
+           HAMBURGER MENU
+        ========================= */
+
+        const hamburger =
+            document.getElementById('hamburger');
+
+        const navLinks =
+            document.getElementById('navLinks');
+
+        hamburger.addEventListener(
+            'click',
+            () => {
+
+                const isOpen =
+                    navLinks.classList.toggle('open');
+
+                hamburger.classList.toggle(
+                    'active',
+                    isOpen
+                );
+
+                hamburger.setAttribute(
+                    'aria-expanded',
+                    isOpen
+                );
+
+                hamburger.setAttribute(
+                    'aria-label',
+                    isOpen
+                        ? 'Close menu'
+                        : 'Open menu'
+                );
+            }
+        );
+
+
+        /* Close menu after clicking a navigation link */
+
+        navLinks
+            .querySelectorAll('a')
+            .forEach(link => {
+
+                link.addEventListener(
+                    'click',
+                    () => {
+
+                        navLinks.classList.remove('open');
+
+                        hamburger.classList.remove(
+                            'active'
+                        );
+
+                        hamburger.setAttribute(
+                            'aria-expanded',
+                            'false'
+                        );
+
+                        hamburger.setAttribute(
+                            'aria-label',
+                            'Open menu'
+                        );
+                    }
+                );
+
+            });
+
+
+        /* Close menu when clicking outside */
+
+        document.addEventListener(
+            'click',
+            event => {
+
+                if (
+                    !navLinks.contains(event.target) &&
+                    !hamburger.contains(event.target)
+                ) {
+
+                    navLinks.classList.remove(
+                        'open'
+                    );
+
+                    hamburger.classList.remove(
+                        'active'
+                    );
+
+                    hamburger.setAttribute(
+                        'aria-expanded',
+                        'false'
+                    );
+
+                    hamburger.setAttribute(
+                        'aria-label',
+                        'Open menu'
+                    );
+                }
+
+            }
+        );
+
+    </script>
+
 </body>
-</html>
+    </html>
