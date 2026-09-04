@@ -9,7 +9,7 @@
 :root{--bg:#08080b;--soft:#101016;--surface:rgba(255,255,255,.045);--hover:rgba(255,255,255,.075);--text:#f4f4f7;--muted:#a3a3ad;--border:rgba(255,255,255,.09);--accent:#7567ff;--accent2:#9187ff;--shadow:0 20px 60px rgba(0,0,0,.35);--r:22px;--max:1180px}
 [data-theme=light]{--bg:#f7f7fa;--soft:#fff;--surface:rgba(0,0,0,.035);--hover:rgba(0,0,0,.06);--text:#101014;--muted:#62626d;--border:rgba(0,0,0,.09);--shadow:0 20px 60px rgba(0,0,0,.08)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 50% -10%,rgba(117,103,255,.14),transparent 35%),var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(calc(100% - 40px),var(--max));margin:auto}
-nav{position:fixed;inset:0 0 auto;z-index:1000;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(8,8,11,.72);border-bottom:1px solid var(--border)}[data-theme=light] nav{background:rgba(247,247,250,.78)}.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em}.brand img{max-height:38px;width:auto;display:block;object-fit:contain}.nav-links{display:flex;gap:4px}.nav-links a{padding:9px 12px;color:var(--muted);font-size:14px;border-radius:10px}.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--surface)}.nav-controls{display:flex;gap:8px}.control-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:8px 11px;border-radius:10px;cursor:pointer}.mobile-menu{display:none}
+nav{position:fixed;inset:0 0 auto;z-index:1000;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(8,8,11,.72);border-bottom:1px solid var(--border)}[data-theme=light] nav{background:rgba(247,247,250,.78)}.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em}.brand img{max-height:38px;width:auto;display:block;object-fit:contain}.nav-links{display:flex;gap:4px}.nav-links a{padding:9px 12px;color:var(--muted);font-size:14px;border-radius:10px}.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--surface)}.nav-controls{display:flex;gap:8px}.control-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:8px 11px;border-radius:10px;cursor:pointer;font-weight:600;font-size:13px}.mobile-menu{display:none}
 .hero{min-height:100svh;min-height:100dvh;display:flex;align-items:center;padding:105px 0 45px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:600px;height:600px;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(117,103,255,.1);filter:blur(120px);border-radius:50%;pointer-events:none}.hero-content{position:relative;width:100%;max-width:920px;margin:auto}.hero-logo{margin-bottom:24px}.hero-logo img{width:min(430px,78vw);height:auto;margin:0 auto;display:block}.team-photo{width:72px;height:72px;object-fit:cover;border-radius:16px;border:1px solid var(--border);flex:0 0 72px}.eyebrow{color:var(--accent2);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}.hero h1{font-size:clamp(48px,7vw,96px);line-height:.94;letter-spacing:-.065em;margin-bottom:24px}.hero-hook{font-size:clamp(21px,2.6vw,32px);line-height:1.18;letter-spacing:-.025em;max-width:820px;margin-bottom:16px}.hero-description{color:var(--muted);font-size:17px;line-height:1.5;max-width:680px;margin-bottom:28px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;border:1px solid var(--border);background:var(--surface);font-weight:700;transition:.2s}.button:hover{transform:translateY(-2px);background:var(--hover)}.button.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 10px 35px rgba(117,103,255,.25)}.hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:38px;color:var(--muted);font-size:13px}.hero-meta strong{color:var(--text);display:block;font-size:17px}
 section{padding:110px 0;border-top:1px solid var(--border)}.section-heading{max-width:720px;margin-bottom:52px}.section-heading h2{font-size:clamp(38px,5vw,62px);line-height:1;letter-spacing:-.055em;margin-bottom:18px}.section-heading p{color:var(--muted);font-size:17px}.grid{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}.card{padding:28px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow)}.card h3{font-size:20px;margin-bottom:10px}.card p{color:var(--muted);font-size:15px}.card-number{color:var(--accent2);font-size:13px;font-weight:800;margin-bottom:25px}.highlight{border-color:rgba(117,103,255,.35);background:linear-gradient(135deg,rgba(117,103,255,.12),var(--surface))}
 .game-intro{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-bottom:18px}.big-copy,.side-stat{padding:38px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface)}.big-copy p{font-size:21px;line-height:1.5}.side-stat span{color:var(--muted);font-size:13px;display:block}.side-stat strong{font-size:34px}.ending-card.bad{border-color:rgba(255,89,100,.22)}.ending-card.true{border-color:rgba(105,211,155,.25)}.ending-card.dead{border-color:rgba(255,89,100,.22)}.ending-label{display:inline-block;padding:5px 9px;border-radius:8px;background:var(--hover);color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px}
@@ -27,117 +27,186 @@ section{padding:110px 0;border-top:1px solid var(--border)}.section-heading{max-
 <nav><div class="container nav-inner">
 <a href="#home" class="brand" aria-label="Yottascope"><img src="yottascopelogo.jpeg" alt="Yottascope logo"></a>
 <div class="nav-links" id="navLinks">
-<a href="#game">Game</a><a href="#why">Why EFS1?</a><a href="#gameplay">Gameplay</a><a href="#world">World</a><a href="#platforms">Platforms</a><a href="#launch">Launch</a><a href="#budget">Budget</a><a href="#schedule">Schedule</a><a href="#contact">Contact</a>
+<a href="#game" data-k="n_game">Game</a>
+<a href="#why" data-k="n_why">Why EFS1?</a>
+<a href="#gameplay" data-k="n_gameplay">Gameplay</a>
+<a href="#world" data-k="n_world">World</a>
+<a href="#platforms" data-k="n_tech">Platforms</a>
+<a href="#launch" data-k="n_launch">Launch</a>
+<a href="#budget" data-k="n_budget">Budget</a>
+<a href="#schedule" data-k="n_schedule">Schedule</a>
+<a href="#contact" data-k="n_contact">Contact</a>
 </div>
-<div class="nav-controls"><button class="control-btn" id="themeToggle">☼</button><button class="control-btn mobile-menu" id="mobileMenu">☰</button></div>
+<div class="nav-controls">
+<button class="control-btn" id="langToggle">TR</button>
+<button class="control-btn" id="themeToggle">☼</button>
+<button class="control-btn mobile-menu" id="mobileMenu">☰</button>
+</div>
 </div></nav>
 
 <main>
 <section class="hero" id="home"><div class="container"><div class="hero-content">
-<div class="hero-logo"><img id="efs1Logo" src="efs1logo-white.png" alt="Escape from the School 1 logo"></div><div class="eyebrow">Yottascope presents</div><h1>Escape from<br>the School 1</h1>
-<p class="hero-hook">They promised you $1 million. They never told you what winning meant.</p>
-<p class="hero-description">A corporate horror and survival game about an abandoned school, a suspicious challenge, and a company that wants you to trust it just a little too much.</p>
-<div class="hero-actions"><a href="#game" class="button primary">Explore the game</a><a href="#budget" class="button">View funding plan</a></div>
-<div class="hero-meta"><div><strong>$50K</strong>Funding request</div><div><strong>Oct 28, 2027</strong>Target launch</div><div><strong>UE5</strong>Core technology</div></div>
+<div class="hero-logo"><img id="efs1Logo" src="efs1logo-white.png" alt="Escape from the School 1 logo"></div>
+<div class="eyebrow" data-k="hero_eyebrow">Yottascope presents</div>
+<h1 data-k="hero_title">Escape from<br>the School 1</h1>
+<p class="hero-hook" data-k="hero_hook">They promised you $1 million. They never told you what winning meant.</p>
+<p class="hero-description" data-k="hero_desc">A corporate horror and survival game about an abandoned school, a suspicious challenge, and a company that wants you to trust it just a little too much.</p>
+<div class="hero-actions"><a href="#game" class="button primary" data-k="hero_btn1">Explore the game</a><a href="#budget" class="button" data-k="hero_btn2">View funding plan</a></div>
+<div class="hero-meta">
+<div><strong data-k="hm_1_v">$50K</strong><span data-k="hm_1_l">Funding request</span></div>
+<div><strong data-k="hm_2_v">Oct 28, 2027</strong><span data-k="hm_2_l">Target launch</span></div>
+<div><strong data-k="hm_3_v">UE5</strong><span data-k="hm_3_l">Core technology</span></div>
+</div>
 </div></div></section>
 
-<section id="game"><div class="container"><div class="section-heading"><div class="eyebrow">The game</div><h2>A million-dollar problem.</h2><p>Pomegranate Corp offers you a simple deal: enter an abandoned school, collect corporate documents, and walk away with one million dollars.</p></div>
-<div class="game-intro"><div class="big-copy"><p>The problem is that the school isn't really a treasure hunt. The entire challenge is designed around getting you inside.</p></div><div class="side-stat"><span>The promise</span><strong>$1,000,000</strong></div></div>
-<div class="grid grid-2"><div class="card highlight"><div class="card-number">01</div><h3>The Offer</h3><p>Explore the abandoned school, recover company documents, follow the rules, and claim your reward.</p></div><div class="card"><div class="card-number">02</div><h3>The Reality</h3><p>The challenge is a trap. The reward is fake, the company is hiding the truth, and you are the real target.</p></div></div>
-<div class="card highlight" style="margin-top:18px"><div class="card-number">MARKET POSITIONING</div><h3>Market Comps & Target Audience</h3><p>EFS1 targets fans of atmospheric, story-driven environmental horror and corporate satire. Positioned for players who enjoy games like <strong>Lethal Company</strong>, <strong>Phasmophobia</strong>, and <strong>Pacific Drive</strong>, combining narrative mystery with diegetic gameplay mechanics.</p></div>
-</div></section>
-
-<section id="why"><div class="container"><div class="section-heading"><div class="eyebrow">Why EFS1?</div><h2>The fear isn't just what's inside.</h2><p>EFS1 combines corporate satire, environmental mystery, exploration, and player choice into a compact horror experience.</p></div>
-<div class="grid grid-4"><div class="card"><div class="card-number">01</div><h3>Corporate Horror</h3><p>The company itself becomes part of the horror.</p></div><div class="card"><div class="card-number">02</div><h3>Trust Is Gameplay</h3><p>Instructions may help you progress, but following them blindly can be dangerous.</p></div><div class="card"><div class="card-number">03</div><h3>The Pomephone Matters</h3><p>A diegetic phone interface gives the player a direct connection to the outside world.</p></div><div class="card"><div class="card-number">04</div><h3>Multiple Outcomes</h3><p>Your decisions determine whether the company's plan succeeds.</p></div></div>
-</div></section>
-
-<section id="gameplay"><div class="container"><div class="section-heading"><div class="eyebrow">Gameplay</div><h2>You decide what to believe.</h2><p>The core experience is exploration, environmental storytelling, investigation, and making the right call when the evidence starts contradicting the company.</p></div>
-<div class="grid grid-3"><div class="card ending-card bad"><span class="ending-label">Bad Ending</span><h3>Trust Pomegranate.</h3><p>Follow the company's instructions, reach the final zone, accept the physical check, and drink the celebratory coffee. The company's plan succeeds.</p></div><div class="card ending-card true"><span class="ending-label">True Ending</span><h3>Call for help.</h3><p>Use the Pomephone P1 Max E, contact emergency services using 911 or 112 depending on region, report the illegal activity, and escape the school alive.</p></div><div class="card ending-card dead"><span class="ending-label">Dead Ending</span><h3>Don't survive.</h3><p>The player is caught by the sludge monsters and dies before escaping the school.</p></div></div>
-</div></section>
-
-<section id="world"><div class="container"><div class="section-heading"><div class="eyebrow">The world</div><h2>An abandoned school with a reason to exist.</h2><p>The school is built as a vertical exploration space, with each level revealing more about what Pomegranate Corp has been hiding.</p></div>
-<div class="floor-list">
-<div class="floor"><div class="floor-number">-2</div><div class="floor-content"><strong>Secret Access</strong><span>Hidden vent access and routes beneath the school.</span></div></div>
-<div class="floor"><div class="floor-number">-1</div><div class="floor-content"><strong>Flooded Basement</strong><span>A submerged lower level containing clues and environmental hazards.</span></div></div>
-<div class="floor"><div class="floor-number">0</div><div class="floor-content"><strong>Entrance / Main Hub</strong><span>The starting point and central navigation space.</span></div></div>
-<div class="floor"><div class="floor-number">1-3</div><div class="floor-content"><strong>Classrooms & Exploration</strong><span>The primary exploration floors where documents and clues are discovered.</span></div></div>
-<div class="floor"><div class="floor-number">4</div><div class="floor-content"><strong>Open-Air Terrace</strong><span>The uppermost playable area and a key part of the final sequence.</span></div></div>
+<section id="game"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="g_eyebrow">The game</div><h2 data-k="g_title">A million-dollar problem.</h2><p data-k="g_desc">Pomegranate Corp offers you a simple deal: enter an abandoned school, collect corporate documents, and walk away with one million dollars.</p></div>
+<div class="game-intro"><div class="big-copy"><p data-k="gi_copy">The problem is that the school isn't really a treasure hunt. The entire challenge is designed around getting you inside.</p></div><div class="side-stat"><span data-k="gi_stat_l">The promise</span><strong>$1,000,000</strong></div></div>
+<div class="grid grid-2">
+<div class="card highlight"><div class="card-number">01</div><h3 data-k="c1_title">The Offer</h3><p data-k="c1_desc">Explore the abandoned school, recover company documents, follow the rules, and claim your reward.</p></div>
+<div class="card"><div class="card-number">02</div><h3 data-k="c2_title">The Reality</h3><p data-k="c2_desc">The challenge is a trap. The reward is fake, the company is hiding the truth, and you are the real target.</p></div>
 </div>
-<div class="card highlight" style="margin-top:18px"><div class="card-number">THREAT</div><h3>Black Chemical Sludge</h3><p>A dangerous substance engineered by Pomegranate Corp and hidden within the school. Its presence turns parts of the environment into a constant source of uncertainty.</p></div>
+<div class="card highlight" style="margin-top:18px"><div class="card-number" data-k="mp_badge">MARKET POSITIONING</div><h3 data-k="mp_title">Market Comps & Target Audience</h3><p data-k="mp_desc">EFS1 targets fans of atmospheric, story-driven environmental horror and corporate satire. Positioned for players who enjoy games like <strong>Lethal Company</strong>, <strong>Phasmophobia</strong>, and <strong>Pacific Drive</strong>, combining narrative mystery with diegetic gameplay mechanics.</p></div>
 </div></section>
 
-<section id="platforms"><div class="container"><div class="section-heading"><div class="eyebrow">Technology & scope</div><h2>Built for a broad platform footprint.</h2><p>Unreal Engine 5 provides the core technology, targeting desktop first with mobile deployment planned.</p></div>
-<div class="grid grid-3"><div class="card platform"><strong>Unreal Engine 5</strong><span>Core engine and development technology</span></div><div class="card platform"><strong>Windows</strong><span>Primary desktop release</span></div><div class="card platform"><strong>macOS</strong><span>Desktop release</span></div><div class="card platform"><strong>Linux</strong><span>Desktop release</span></div><div class="card platform"><strong>iOS / iPadOS</strong><span>Mobile release target</span></div><div class="card platform"><strong>Android</strong><span>Mobile release target</span></div></div>
-<div class="grid grid-2" style="margin-top:18px"><div class="card"><h3>Stores</h3><p>Steam<br>Epic Games Store<br>Apple App Store<br>Google Play Store</p></div><div class="card"><h3>Target Ratings</h3><p>PEGI 16<br>ESRB M</p></div></div>
+<section id="why"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="w_eyebrow">Why EFS1?</div><h2 data-k="w_title">The fear isn't just what's inside.</h2><p data-k="w_desc">EFS1 combines corporate satire, environmental mystery, exploration, and player choice into a compact horror experience.</p></div>
+<div class="grid grid-4">
+<div class="card"><div class="card-number">01</div><h3 data-k="w1_t">Corporate Horror</h3><p data-k="w1_d">The company itself becomes part of the horror.</p></div>
+<div class="card"><div class="card-number">02</div><h3 data-k="w2_t">Trust Is Gameplay</h3><p data-k="w2_d">Instructions may help you progress, but following them blindly can be dangerous.</p></div>
+<div class="card"><div class="card-number">03</div><h3 data-k="w3_t">The Pomephone Matters</h3><p data-k="w3_d">A diegetic phone interface gives the player a direct connection to the outside world.</p></div>
+<div class="card"><div class="card-number">04</div><h3 data-k="w4_t">Multiple Outcomes</h3><p data-k="w4_d">Your decisions determine whether the company's plan succeeds.</p></div>
+</div>
 </div></section>
 
-<section id="launch"><div class="container"><div class="section-heading"><div class="eyebrow">Launch strategy</div><h2>Global from day one.</h2><p>The launch plan combines accessible pricing, regional pricing, localization, and targeted creator outreach.</p></div>
-<div class="grid grid-4"><div class="card"><div class="launch-price">$9.99</div><p>Standard edition</p></div><div class="card"><div class="launch-price">$14.99</div><p>Premium edition</p></div><div class="card"><div class="launch-date">Oct 28</div><p>2027 global launch</p></div><div class="card"><div class="launch-date">14</div><p>Launch languages</p></div></div>
-<div class="grid grid-2" style="margin-top:18px"><div class="card"><h3>Launch Discount</h3><p>20% launch discount, with additional regional pricing planned for LATAM, MENA, SEA, and Turkey.</p></div><div class="card"><h3>Audience Strategy</h3><p>Steam Next Fest in October 2027, streamer outreach, and a multilingual launch campaign.</p></div></div>
-</div></section>
-
-<section id="team"><div class="container"><div class="section-heading"><div class="eyebrow">Team</div><h2>Yottascope.</h2><p>Meet the people behind Escape from the School 1.</p></div>
+<section id="gameplay"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="gp_eyebrow">Gameplay</div><h2 data-k="gp_title">You decide what to believe.</h2><p data-k="gp_desc">The core experience is exploration, environmental storytelling, investigation, and making the right call when the evidence starts contradicting the company.</p></div>
 <div class="grid grid-3">
-<div class="card team-card"><img src="emg.jpeg" alt="Eyüp M." class="team-photo"><div><h3>Eyüp M.</h3><p>Co-Founder / Developer</p></div></div>
-<div class="card team-card"><img src="hb.jpeg" alt="Hamza B." class="team-photo"><div><h3>Hamza B.</h3><p>Co-Founder / Developer</p></div></div>
-<div class="card team-card"><img src="eg.jpeg" alt="Emrah G." class="team-photo"><div><h3>Emrah G.</h3><p>Company Manager</p></div></div>
+<div class="card ending-card bad"><span class="ending-label" data-k="e1_label">Bad Ending</span><h3 data-k="e1_title">Trust Pomegranate.</h3><p data-k="e1_desc">Follow the company's instructions, reach the final zone, accept the physical check, and drink the celebratory coffee. The company's plan succeeds.</p></div>
+<div class="card ending-card true"><span class="ending-label" data-k="e2_label">True Ending</span><h3 data-k="e2_title">Call for help.</h3><p data-k="e2_desc">Use the Pomephone P1 Max E, contact emergency services using 911 or 112 depending on region, report the illegal activity, and escape the school alive.</p></div>
+<div class="card ending-card dead"><span class="ending-label" data-k="e3_label">Dead Ending</span><h3 data-k="e3_title">Don't survive.</h3><p data-k="e3_desc">The player is caught by the sludge monsters and dies before escaping the school.</p></div>
 </div>
 </div></section>
 
-<section id="budget"><div class="container"><div class="section-heading"><div class="eyebrow">Funding plan</div><h2>A $50K production plan.</h2><p>The requested funding covers essential high-performance hardware, game art, audio, software licenses, office operations, localization, and platform fees ($1 = 48.5 TL).</p></div>
-<div class="budget-summary"><div class="budget-total"><span>Calculated budget</span><strong>$46,788</strong><small>Based on itemized operating plan</small></div><div class="budget-total"><span>Funding requested</span><strong>$50,000</strong><small>Includes $3,212 production reserve</small></div></div>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">01</div><div><strong>Development Hardware</strong><span>High-performance workstations and testing hardware</span></div></div><div class="category-total"><strong>$15,519</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
-<div class="budget-item"><div class="budget-item-name">PC 1 - Main Dev (RTX 5080 build)</div><div class="budget-item-price">$7,433</div></div>
-<div class="budget-item"><div class="budget-item-name">PC 2 - Second Dev build</div><div class="budget-item-price">$4,873</div></div>
-<div class="budget-item"><div class="budget-item-name">MacBook Pro M5 32GB 1TB</div><div class="budget-item-price">$3,213</div></div>
-</div></details>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">02</div><div><strong>Game Production & Assets</strong><span>UE5 assets, OST, sound design, and art direction</span></div></div><div class="category-total"><strong>$8,200</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
-<div class="budget-item"><div class="budget-item-name">3D Environments & UE5 Assets</div><div class="budget-item-price">$4,500</div></div>
-<div class="budget-item"><div class="budget-item-name">Original OST & Sound Design</div><div class="budget-item-price">$2,500</div></div>
-<div class="budget-item"><div class="budget-item-name">Voice Acting & Narrative Audio</div><div class="budget-item-price">$1,200</div></div>
-</div></details>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">03</div><div><strong>Company Registration & Office Setup</strong><span>Legal setup, Istanbul office space, and operations</span></div></div><div class="category-total"><strong>$7,554</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
-<div class="budget-item"><div class="budget-item-name">Company Registration (Yottascope Ltd.)</div><div class="budget-item-price">$725</div></div>
-<div class="budget-item"><div class="budget-item-name">Minimum Capital Requirement</div><div class="budget-item-price">$1,036</div></div>
-<div class="budget-item"><div class="budget-item-name">Legal, Accounting & Setup Admin</div><div class="budget-item-price">$1,800</div></div>
-<div class="budget-item"><div class="budget-item-name">Office Space & Operations (Istanbul)</div><div class="budget-item-price">$3,993</div></div>
-</div></details>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">04</div><div><strong>Localization & Testing</strong><span>14 launch languages and QA</span></div></div><div class="category-total"><strong>$5,500</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
-<div class="budget-item"><div class="budget-item-name">Localization (14 Languages)</div><div class="budget-item-price">$4,000</div></div>
-<div class="budget-item"><div class="budget-item-name">QA Playtesting & Platform Compliance</div><div class="budget-item-price">$1,500</div></div>
-</div></details>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">05</div><div><strong>Software & Services</strong><span>Creative, design, AI, and productivity tooling</span></div></div><div class="category-total"><strong>$1,702</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
-<div class="budget-item"><div class="budget-item-name">Adobe CC Standard (1yr)</div><div class="budget-item-price">$697</div></div>
-<div class="budget-item"><div class="budget-item-name">Figma Professional (1yr, 2 seats)</div><div class="budget-item-price">$288</div></div>
-<div class="budget-item"><div class="budget-item-name">Claude Pro x3 (1yr annual)</div><div class="budget-item-price">$612</div></div>
-<div class="budget-item"><div class="budget-item-name">Google Workspace Standard (3 users, 1yr)</div><div class="budget-item-price">$105</div></div>
-</div></details>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">06</div><div><strong>Platform & Publishing</strong><span>Store accounts, server infra, and launch campaign</span></div></div><div class="category-total"><strong>$3,313</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
-<div class="budget-item"><div class="budget-item-name">Steam, Apple & Google Developer Accounts</div><div class="budget-item-price">$224</div></div>
-<div class="budget-item"><div class="budget-item-name">Hetzner VPS & Domain Infra (1yr)</div><div class="budget-item-price">$275</div></div>
-<div class="budget-item"><div class="budget-item-name">Marketing & Creator Outreach</div><div class="budget-item-price">$2,814</div></div>
-</div></details>
-
-<details class="budget-category"><summary><div class="category-title"><div class="category-icon">07</div><div><strong>Funding Reserve</strong><span>Production buffer for unforeseen costs</span></div></div><div class="category-total"><strong>$3,212</strong><span class="chevron">⌄</span></div></summary><div class="budget-items"><div class="budget-item"><div class="budget-item-name">Production Reserve Buffer</div><div class="budget-item-price">$3,212</div></div></div></details>
-<p class="budget-note">The production reserve brings the total requested funding to $50,000, ensuring a safety buffer for exchange rate fluctuations and production scaling.</p>
+<section id="world"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="wo_eyebrow">The world</div><h2 data-k="wo_title">An abandoned school with a reason to exist.</h2><p data-k="wo_desc">The school is built as a vertical exploration space, with each level revealing more about what Pomegranate Corp has been hiding.</p></div>
+<div class="floor-list">
+<div class="floor"><div class="floor-number">-2</div><div class="floor-content"><strong data-k="fl_m2_t">Secret Access</strong><span data-k="fl_m2_d">Hidden vent access and routes beneath the school.</span></div></div>
+<div class="floor"><div class="floor-number">-1</div><div class="floor-content"><strong data-k="fl_m1_t">Flooded Basement</strong><span data-k="fl_m1_d">A submerged lower level containing clues and environmental hazards.</span></div></div>
+<div class="floor"><div class="floor-number">0</div><div class="floor-content"><strong data-k="fl_0_t">Entrance / Main Hub</strong><span data-k="fl_0_d">The starting point and central navigation space.</span></div></div>
+<div class="floor"><div class="floor-number">1-3</div><div class="floor-content"><strong data-k="fl_13_t">Classrooms & Exploration</strong><span data-k="fl_13_d">The primary exploration floors where documents and clues are discovered.</span></div></div>
+<div class="floor"><div class="floor-number">4</div><div class="floor-content"><strong data-k="fl_4_t">Open-Air Terrace</strong><span data-k="fl_4_d">The uppermost playable area and a key part of the final sequence.</span></div></div>
+</div>
+<div class="card highlight" style="margin-top:18px"><div class="card-number" data-k="th_badge">THREAT</div><h3 data-k="th_title">Black Chemical Sludge</h3><p data-k="th_desc">A dangerous substance engineered by Pomegranate Corp and hidden within the school. Its presence turns parts of the environment into a constant source of uncertainty.</p></div>
 </div></section>
 
-<section id="schedule"><div class="container"><div class="section-heading"><div class="eyebrow">Production schedule</div><h2>From pre-production to launch.</h2><p>Development is structured around clear phases with increasing focus on playable systems, polish, QA, and launch readiness.</p></div>
-<div class="timeline"><div class="timeline-step"><span>01</span><h3>Pre-Production</h3><p>Design, planning, technical foundation, and scope definition.</p></div><div class="timeline-step"><span>02</span><h3>Core Development</h3><p>Core gameplay, exploration, environment, and narrative systems.</p></div><div class="timeline-step"><span>03</span><h3>Systems Development</h3><p>Polish gameplay loops, implement platform features, and integrate content.</p></div><div class="timeline-step"><span>04</span><h3>Polish & QA</h3><p>Optimization, bug fixing, testing, ratings, localization, and release preparation.</p></div><div class="timeline-step highlight"><span>05</span><h3>Steam Next Fest</h3><p><strong>October 2027</strong><br>Public EFS1 Trial demo release and main wishlist campaign.</p></div><div class="timeline-step highlight"><span>06</span><h3>Launch</h3><p><strong>October 28, 2027</strong><br>Global release target.</p></div></div>
+<section id="platforms"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="pl_eyebrow">Technology & scope</div><h2 data-k="pl_title">Built for a broad platform footprint.</h2><p data-k="pl_desc">Unreal Engine 5 provides the core technology, targeting desktop first with mobile deployment planned.</p></div>
+<div class="grid grid-3">
+<div class="card platform"><strong>Unreal Engine 5</strong><span data-k="p1_d">Core engine and development technology</span></div>
+<div class="card platform"><strong>Windows</strong><span data-k="p2_d">Primary desktop release</span></div>
+<div class="card platform"><strong>macOS</strong><span data-k="p3_d">Desktop release</span></div>
+<div class="card platform"><strong>Linux</strong><span data-k="p4_d">Desktop release</span></div>
+<div class="card platform"><strong>iOS / iPadOS</strong><span data-k="p5_d">Mobile release target</span></div>
+<div class="card platform"><strong>Android</strong><span data-k="p6_d">Mobile release target</span></div>
+</div>
+<div class="grid grid-2" style="margin-top:18px">
+<div class="card"><h3 data-k="st_title">Stores</h3><p>Steam<br>Epic Games Store<br>Apple App Store<br>Google Play Store</p></div>
+<div class="card"><h3 data-k="tr_title">Target Ratings</h3><p>PEGI 16<br>ESRB M</p></div>
+</div>
+</div></section>
+
+<section id="launch"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="l_eyebrow">Launch strategy</div><h2 data-k="l_title">Global from day one.</h2><p data-k="l_desc">The launch plan combines accessible pricing, regional pricing, localization, and targeted creator outreach.</p></div>
+<div class="grid grid-4">
+<div class="card"><div class="launch-price">$9.99</div><p data-k="l1_d">Standard edition</p></div>
+<div class="card"><div class="launch-price">$14.99</div><p data-k="l2_d">Premium edition</p></div>
+<div class="card"><div class="launch-date" data-k="l3_v">Oct 28</div><p data-k="l3_d">2027 global launch</p></div>
+<div class="card"><div class="launch-date">14</div><p data-k="l4_d">Launch languages</p></div>
+</div>
+<div class="grid grid-2" style="margin-top:18px">
+<div class="card"><h3 data-k="ld_title">Launch Discount</h3><p data-k="ld_desc">20% launch discount, with additional regional pricing planned for LATAM, MENA, SEA, and Turkey.</p></div>
+<div class="card"><h3 data-k="as_title">Audience Strategy</h3><p data-k="as_desc">Steam Next Fest in October 2027, streamer outreach, and a multilingual launch campaign.</p></div>
+</div>
+</div></section>
+
+<section id="team"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="tm_eyebrow">Team</div><h2>Yottascope.</h2><p data-k="tm_desc">Meet the people behind Escape from the School 1.</p></div>
+<div class="grid grid-3">
+<div class="card team-card"><img src="emg.jpeg" alt="Eyüp M." class="team-photo"><div><h3>Eyüp M.</h3><p data-k="tm1_r">Co-Founder / Developer</p></div></div>
+<div class="card team-card"><img src="hb.jpeg" alt="Hamza B." class="team-photo"><div><h3>Hamza B.</h3><p data-k="tm2_r">Co-Founder / Developer</p></div></div>
+<div class="card team-card"><img src="eg.jpeg" alt="Emrah G." class="team-photo"><div><h3>Emrah G.</h3><p data-k="tm3_r">Company Manager</p></div></div>
+</div>
+</div></section>
+
+<section id="budget"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="b_eyebrow">Funding plan</div><h2 data-k="b_title">A $50K production plan.</h2><p data-k="b_desc">The requested funding covers essential high-performance hardware, game art, audio, software licenses, office operations, localization, and platform fees ($1 = 48.5 TL).</p></div>
+<div class="budget-summary">
+<div class="budget-total"><span data-k="bt1_l">Calculated budget</span><strong>$46,788</strong><small data-k="bt1_s">Based on itemized operating plan</small></div>
+<div class="budget-total"><span data-k="bt2_l">Funding requested</span><strong>$50,000</strong><small data-k="bt2_s">Includes $3,212 production reserve</small></div>
+</div>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">01</div><div><strong data-k="bc1_t">Development Hardware</strong><span data-k="bc1_d">High-performance workstations and testing hardware</span></div></div><div class="category-total"><strong>$15,519</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi1_1">PC 1 - Main Dev (RTX 5080 build)</div><div class="budget-item-price">$7,433</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi1_2">PC 2 - Second Dev build</div><div class="budget-item-price">$4,873</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi1_3">MacBook Pro M5 32GB 1TB</div><div class="budget-item-price">$3,213</div></div>
+</div></details>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">02</div><div><strong data-k="bc2_t">Game Production & Assets</strong><span data-k="bc2_d">UE5 assets, OST, sound design, and art direction</span></div></div><div class="category-total"><strong>$8,200</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi2_1">3D Environments & UE5 Assets</div><div class="budget-item-price">$4,500</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi2_2">Original OST & Sound Design</div><div class="budget-item-price">$2,500</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi2_3">Voice Acting & Narrative Audio</div><div class="budget-item-price">$1,200</div></div>
+</div></details>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">03</div><div><strong data-k="bc3_t">Company Registration & Office Setup</strong><span data-k="bc3_d">Legal setup, Istanbul office space, and operations</span></div></div><div class="category-total"><strong>$7,554</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi3_1">Company Registration (Yottascope Ltd.)</div><div class="budget-item-price">$725</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi3_2">Minimum Capital Requirement</div><div class="budget-item-price">$1,036</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi3_3">Legal, Accounting & Setup Admin</div><div class="budget-item-price">$1,800</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi3_4">Office Space & Operations (Istanbul)</div><div class="budget-item-price">$3,993</div></div>
+</div></details>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">04</div><div><strong data-k="bc4_t">Localization & Testing</strong><span data-k="bc4_d">14 launch languages and QA</span></div></div><div class="category-total"><strong>$5,500</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi4_1">Localization (14 Languages)</div><div class="budget-item-price">$4,000</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi4_2">QA Playtesting & Platform Compliance</div><div class="budget-item-price">$1,500</div></div>
+</div></details>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">05</div><div><strong data-k="bc5_t">Software & Services</strong><span data-k="bc5_d">Creative, design, AI, and productivity tooling</span></div></div><div class="category-total"><strong>$1,702</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi5_1">Adobe CC Standard (1yr)</div><div class="budget-item-price">$697</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi5_2">Figma Professional (1yr, 2 seats)</div><div class="budget-item-price">$288</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi5_3">Claude Pro x3 (1yr annual)</div><div class="budget-item-price">$612</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi5_4">Google Workspace Standard (3 users, 1yr)</div><div class="budget-item-price">$105</div></div>
+</div></details>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">06</div><div><strong data-k="bc6_t">Platform & Publishing</strong><span data-k="bc6_d">Store accounts, server infra, and launch campaign</span></div></div><div class="category-total"><strong>$3,313</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi6_1">Steam, Apple & Google Developer Accounts</div><div class="budget-item-price">$224</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi6_2">Hetzner VPS & Domain Infra (1yr)</div><div class="budget-item-price">$275</div></div>
+<div class="budget-item"><div class="budget-item-name" data-k="bi6_3">Marketing & Creator Outreach</div><div class="budget-item-price">$2,814</div></div>
+</div></details>
+
+<details class="budget-category"><summary><div class="category-title"><div class="category-icon">07</div><div><strong data-k="bc7_t">Funding Reserve</strong><span data-k="bc7_d">Production buffer for unforeseen costs</span></div></div><div class="category-total"><strong>$3,212</strong><span class="chevron">⌄</span></div></summary><div class="budget-items">
+<div class="budget-item"><div class="budget-item-name" data-k="bi7_1">Production Reserve Buffer</div><div class="budget-item-price">$3,212</div></div>
+</div></details>
+<p class="budget-note" data-k="b_note">The production reserve brings the total requested funding to $50,000, ensuring a safety buffer for exchange rate fluctuations and production scaling.</p>
+</div></section>
+
+<section id="schedule"><div class="container">
+<div class="section-heading"><div class="eyebrow" data-k="sch_eyebrow">Production schedule</div><h2 data-k="sch_title">From pre-production to launch.</h2><p data-k="sch_desc">Development is structured around clear phases with increasing focus on playable systems, polish, QA, and launch readiness.</p></div>
+<div class="timeline">
+<div class="timeline-step"><span>01</span><h3 data-k="s1_t">Pre-Production</h3><p data-k="s1_d">Design, planning, technical foundation, and scope definition.</p></div>
+<div class="timeline-step"><span>02</span><h3 data-k="s2_t">Core Development</h3><p data-k="s2_d">Core gameplay, exploration, environment, and narrative systems.</p></div>
+<div class="timeline-step"><span>03</span><h3 data-k="s3_t">Systems Development</h3><p data-k="s3_d">Polish gameplay loops, implement platform features, and integrate content.</p></div>
+<div class="timeline-step"><span>04</span><h3 data-k="s4_t">Polish & QA</h3><p data-k="s4_d">Optimization, bug fixing, testing, ratings, localization, and release preparation.</p></div>
+<div class="timeline-step highlight"><span>05</span><h3>Steam Next Fest</h3><p data-k="s5_d"><strong>October 2027</strong><br>Public EFS1 Trial demo release and main wishlist campaign.</p></div>
+<div class="timeline-step highlight"><span>06</span><h3 data-k="s6_t">Launch</h3><p data-k="s6_d"><strong>October 28, 2027</strong><br>Global release target.</p></div>
+</div>
 </div></section>
 
 <section id="contact"><div class="container"><div class="contact-box">
-<div class="eyebrow">Contact</div><h2>Let's talk.</h2>
+<div class="eyebrow" data-k="c_eyebrow">Contact</div><h2 data-k="c_title">Let's talk.</h2>
 <div class="hero-actions" style="justify-content:center"><a href="mailto:yottascope@gmail.com" class="button primary">yottascope@gmail.com</a><a href="https://yottascope.com" class="button" target="_blank" rel="noopener">yottascope.com</a></div>
-<div class="contact-subsection"><div class="contact-subsection-label">WhatsApp</div><a href="https://wa.me/905458811244" class="social-link" target="_blank" rel="noopener"><span class="social-icon">WA</span><span><strong>Chat with Yottascope</strong><small>+90 545 881 12 44</small></span><span class="social-arrow">↗</span></a></div>
-<div class="contact-subsection"><div class="contact-subsection-label">Social Media</div><div class="social-grid">
-<a href="https://discord.gg/ZFPKMbRNKy" class="social-link" target="_blank" rel="noopener"><span class="social-icon">DC</span><span><strong>Discord</strong><small>Community</small></span><span class="social-arrow">↗</span></a>
+<div class="contact-subsection"><div class="contact-subsection-label">WhatsApp</div><a href="https://wa.me/905458811244" class="social-link" target="_blank" rel="noopener"><span class="social-icon">WA</span><span><strong data-k="c_wa">Chat with Yottascope</strong><small>+90 545 881 12 44</small></span><span class="social-arrow">↗</span></a></div>
+<div class="contact-subsection"><div class="contact-subsection-label" data-k="c_soc">Social Media</div><div class="social-grid">
+<a href="https://discord.gg/ZFPKMbRNKy" class="social-link" target="_blank" rel="noopener"><span class="social-icon">DC</span><span><strong>Discord</strong><small data-k="sg_dc">Community</small></span><span class="social-arrow">↗</span></a>
 <a href="https://x.com/Yottascopedev" class="social-link" target="_blank" rel="noopener"><span class="social-icon">X</span><span><strong>X / Twitter</strong><small>@Yottascopedev</small></span><span class="social-arrow">↗</span></a>
 <a href="https://instagram.com/yottascope" class="social-link" target="_blank" rel="noopener"><span class="social-icon">IG</span><span><strong>Instagram</strong><small>@yottascope</small></span><span class="social-arrow">↗</span></a>
 <a href="https://youtube.com/@yottascope" class="social-link" target="_blank" rel="noopener"><span class="social-icon">YT</span><span><strong>YouTube</strong><small>@yottascope</small></span><span class="social-arrow">↗</span></a>
@@ -146,9 +215,75 @@ section{padding:110px 0;border-top:1px solid var(--border)}.section-heading{max-
 </div></div></section>
 </main>
 
-<footer><div class="container footer-inner"><span>© 2026 Yottascope. All rights reserved.</span><span>Escape from the School 1</span></div></footer>
+<footer><div class="container footer-inner"><span data-k="f_copy">© 2026 Yottascope. All rights reserved.</span><span>Escape from the School 1</span></div></footer>
 
 <script>
+const langData = {
+  en: {
+    n_game: "Game", n_why: "Why EFS1?", n_gameplay: "Gameplay", n_world: "World", n_tech: "Platforms", n_launch: "Launch", n_budget: "Budget", n_schedule: "Schedule", n_contact: "Contact",
+    hero_eyebrow: "Yottascope presents", hero_title: "Escape from<br>the School 1", hero_hook: "They promised you $1 million. They never told you what winning meant.", hero_desc: "A corporate horror and survival game about an abandoned school, a suspicious challenge, and a company that wants you to trust it just a little too much.", hero_btn1: "Explore the game", hero_btn2: "View funding plan",
+    hm_1_v: "$50K", hm_1_l: "Funding request", hm_2_v: "Oct 28, 2027", hm_2_l: "Target launch", hm_3_v: "UE5", hm_3_l: "Core technology",
+    g_eyebrow: "The game", g_title: "A million-dollar problem.", g_desc: "Pomegranate Corp offers you a simple deal: enter an abandoned school, collect corporate documents, and walk away with one million dollars.", gi_copy: "The problem is that the school isn't really a treasure hunt. The entire challenge is designed around getting you inside.", gi_stat_l: "The promise",
+    c1_title: "The Offer", c1_desc: "Explore the abandoned school, recover company documents, follow the rules, and claim your reward.", c2_title: "The Reality", c2_desc: "The challenge is a trap. The reward is fake, the company is hiding the truth, and you are the real target.", mp_badge: "MARKET POSITIONING", mp_title: "Market Comps & Target Audience", mp_desc: "EFS1 targets fans of atmospheric, story-driven environmental horror and corporate satire. Positioned for players who enjoy games like <strong>Lethal Company</strong>, <strong>Phasmophobia</strong>, and <strong>Pacific Drive</strong>, combining narrative mystery with diegetic gameplay mechanics.",
+    w_eyebrow: "Why EFS1?", w_title: "The fear isn't just what's inside.", w_desc: "EFS1 combines corporate satire, environmental mystery, exploration, and player choice into a compact horror experience.", w1_t: "Corporate Horror", w1_d: "The company itself becomes part of the horror.", w2_t: "Trust Is Gameplay", w2_d: "Instructions may help you progress, but following them blindly can be dangerous.", w3_t: "The Pomephone Matters", w3_d: "A diegetic phone interface gives the player a direct connection to the outside world.", w4_t: "Multiple Outcomes", w4_d: "Your decisions determine whether the company's plan succeeds.",
+    gp_eyebrow: "Gameplay", gp_title: "You decide what to believe.", gp_desc: "The core experience is exploration, environmental storytelling, investigation, and making the right call when the evidence starts contradicting the company.", e1_label: "Bad Ending", e1_title: "Trust Pomegranate.", e1_desc: "Follow the company's instructions, reach the final zone, accept the physical check, and drink the celebratory coffee. The company's plan succeeds.", e2_label: "True Ending", e2_title: "Call for help.", e2_desc: "Use the Pomephone P1 Max E, contact emergency services using 911 or 112 depending on region, report the illegal activity, and escape the school alive.", e3_label: "Dead Ending", e3_title: "Don't survive.", e3_desc: "The player is caught by the sludge monsters and dies before escaping the school.",
+    wo_eyebrow: "The world", wo_title: "An abandoned school with a reason to exist.", wo_desc: "The school is built as a vertical exploration space, with each level revealing more about what Pomegranate Corp has been hiding.", fl_m2_t: "Secret Access", fl_m2_d: "Hidden vent access and routes beneath the school.", fl_m1_t: "Flooded Basement", fl_m1_d: "A submerged lower level containing clues and environmental hazards.", fl_0_t: "Entrance / Main Hub", fl_0_d: "The starting point and central navigation space.", fl_13_t: "Classrooms & Exploration", fl_13_d: "The primary exploration floors where documents and clues are discovered.", fl_4_t: "Open-Air Terrace", fl_4_d: "The uppermost playable area and a key part of the final sequence.", th_badge: "THREAT", th_title: "Black Chemical Sludge", th_desc: "A dangerous substance engineered by Pomegranate Corp and hidden within the school. Its presence turns parts of the environment into a constant source of uncertainty.",
+    pl_eyebrow: "Technology & scope", pl_title: "Built for a broad platform footprint.", pl_desc: "Unreal Engine 5 provides the core technology, targeting desktop first with mobile deployment planned.", p1_d: "Core engine and development technology", p2_d: "Primary desktop release", p3_d: "Desktop release", p4_d: "Desktop release", p5_d: "Mobile release target", p6_d: "Mobile release target", st_title: "Stores", tr_title: "Target Ratings",
+    l_eyebrow: "Launch strategy", l_title: "Global from day one.", l_desc: "The launch plan combines accessible pricing, regional pricing, localization, and targeted creator outreach.", l1_d: "Standard edition", l2_d: "Premium edition", l3_v: "Oct 28", l3_d: "2027 global launch", l4_d: "Launch languages", ld_title: "Launch Discount", ld_desc: "20% launch discount, with additional regional pricing planned for LATAM, MENA, SEA, and Turkey.", as_title: "Audience Strategy", as_desc: "Steam Next Fest in October 2027, streamer outreach, and a multilingual launch campaign.",
+    tm_eyebrow: "Team", tm_desc: "Meet the people behind Escape from the School 1.", tm1_r: "Co-Founder / Developer", tm2_r: "Co-Founder / Developer", tm3_r: "Company Manager",
+    b_eyebrow: "Funding plan", b_title: "A $50K production plan.", b_desc: "The requested funding covers essential high-performance hardware, game art, audio, software licenses, office operations, localization, and platform fees ($1 = 48.5 TL).", bt1_l: "Calculated budget", bt1_s: "Based on itemized operating plan", bt2_l: "Funding requested", bt2_s: "Includes $3,212 production reserve",
+    bc1_t: "Development Hardware", bc1_d: "High-performance workstations and testing hardware", bi1_1: "PC 1 - Main Dev (RTX 5080 build)", bi1_2: "PC 2 - Second Dev build", bi1_3: "MacBook Pro M5 32GB 1TB",
+    bc2_t: "Game Production & Assets", bc2_d: "UE5 assets, OST, sound design, and art direction", bi2_1: "3D Environments & UE5 Assets", bi2_2: "Original OST & Sound Design", bi2_3: "Voice Acting & Narrative Audio",
+    bc3_t: "Company Registration & Office Setup", bc3_d: "Legal setup, Istanbul office space, and operations", bi3_1: "Company Registration (Yottascope Ltd.)", bi3_2: "Minimum Capital Requirement", bi3_3: "Legal, Accounting & Setup Admin", bi3_4: "Office Space & Operations (Istanbul)",
+    bc4_t: "Localization & Testing", bc4_d: "14 launch languages and QA", bi4_1: "Localization (14 Languages)", bi4_2: "QA Playtesting & Platform Compliance",
+    bc5_t: "Software & Services", bc5_d: "Creative, design, AI, and productivity tooling", bi5_1: "Adobe CC Standard (1yr)", bi5_2: "Figma Professional (1yr, 2 seats)", bi5_3: "Claude Pro x3 (1yr annual)", bi5_4: "Google Workspace Standard (3 users, 1yr)",
+    bc6_t: "Platform & Publishing", bc6_d: "Store accounts, server infra, and launch campaign", bi6_1: "Steam, Apple & Google Developer Accounts", bi6_2: "Hetzner VPS & Domain Infra (1yr)", bi6_3: "Marketing & Creator Outreach",
+    bc7_t: "Funding Reserve", bc7_d: "Production buffer for unforeseen costs", bi7_1: "Production Reserve Buffer", b_note: "The production reserve brings the total requested funding to $50,000, ensuring a safety buffer for exchange rate fluctuations and production scaling.",
+    sch_eyebrow: "Production schedule", sch_title: "From pre-production to launch.", sch_desc: "Development is structured around clear phases with increasing focus on playable systems, polish, QA, and launch readiness.", s1_t: "Pre-Production", s1_d: "Design, planning, technical foundation, and scope definition.", s2_t: "Core Development", s2_d: "Core gameplay, exploration, environment, and narrative systems.", s3_t: "Systems Development", s3_d: "Polish gameplay loops, implement platform features, and integrate content.", s4_t: "Polish & QA", s4_d: "Optimization, bug fixing, testing, ratings, localization, and release preparation.", s5_d: "<strong>October 2027</strong><br>Public EFS1 Trial demo release and main wishlist campaign.", s6_t: "Launch", s6_d: "<strong>October 28, 2027</strong><br>Global release target.",
+    c_eyebrow: "Contact", c_title: "Let's talk.", c_wa: "Chat with Yottascope", c_soc: "Social Media", sg_dc: "Community", f_copy: "© 2026 Yottascope. All rights reserved."
+  },
+  tr: {
+    n_game: "Oyun", n_why: "Neden EFS1?", n_gameplay: "Oynanış", n_world: "Dünya", n_tech: "Platformlar", n_launch: "Çıkış", n_budget: "Bütçe", n_schedule: "Takvim", n_contact: "İletişim",
+    hero_eyebrow: "Yottascope sunar", hero_title: "Escape from<br>the School 1", hero_hook: "Sana 1 milyon dolar söz verdiler. Kazanmanın ne anlama geldiğini söylemediler.", hero_desc: "Terk edilmiş bir okul, şüpheli bir meydan okuma ve kendisine fazla güvenmenizi isteyen bir şirket hakkında kurumsal korku ve hayatta kalma oyunu.", hero_btn1: "Oyunu Keşfet", hero_btn2: "Bütçe Planı",
+    hm_1_v: "$50 Bın", hm_1_l: "Fon Talebi", hm_2_v: "28 Ekim 2027", hm_2_l: "Hedef Çıkış", hm_3_v: "UE5", hm_3_l: "Temel Oyun Motoru",
+    g_eyebrow: "Oyun", g_title: "Bir milyon dolarlık problem.", g_desc: "Pomegranate Corp size basit bir teklif sunuyor: terk edilmiş bir okula girin, şirket belgelerini toplayın ve 1 milyon dolar ile yürüyün.", gi_copy: "Sorun şu ki, okul aslında bir hazine avı yeri değil. Bütün yarışma sizi içeri sokmak üzerine tasarlandı.", gi_stat_l: "Vaat edilen",
+    c1_title: "Teklif", c1_desc: "Terk edilmiş okulu keşfedin, şirket belgelerini kurtarın, kurallara uyun ve ödülünüzü alın.", c2_title: "Gerçek", c2_desc: "Meydan okuma bir tuzak. Ödül sahte, şirket gerçeği gizliyor ve asıl hedef sizsiniz.", mp_badge: "PAZAR KONUMLANDIRMASI", mp_title: "Pazar Karşılaştırması ve Hedef Kitle", mp_desc: "EFS1; atmosferik, hikaye odaklı çevre korkusu ve kurumsal hiciv severleri hedefler. Hikaye gizemini gerçekçi oyun mekanikleriyle birleştirerek <strong>Lethal Company</strong>, <strong>Phasmophobia</strong> ve <strong>Pacific Drive</strong> seven oyunculara hitap eder.",
+    w_eyebrow: "Neden EFS1?", w_title: "Korku sadece içeridekilerden ibaret değil.", w_desc: "EFS1; kurumsal hiciv, çevresel gizem, keşif ve oyuncu seçimlerini kompakt bir korku deneyiminde birleştirir.", w1_t: "Kurumsal Korku", w1_d: "Şirketin kendisi korkunun bir parçası haline gelir.", w2_t: "Oynanış Güvene Dayanır", w2_d: "Talimatlar ilerlemenize yardımcı olabilir, ancak bunlara körü körüne uymak tehlikelidir.", w3_t: "Pomephone Önemlidir", w3_d: "Gerçekçi telefon arayüzü, oyuncuya dış dünyayla doğrudan bir bağlantı sağlar.", w4_t: "Çeşitli Sonlar", w4_d: "Kararlarınız şirketin planının başarılı olup olmayacağını belirler.",
+    gp_eyebrow: "Oynanış", gp_title: "Neye inanacağınıza siz karar verin.", gp_desc: "Temel deneyim keşif, çevresel hikaye anlatımı, araştırma ve kanıtlar şirketle çelişmeye başladığında doğru kararı vermektir.", e1_label: "Kötü Son", e1_title: "Pomegranate'e Güven.", e1_desc: "Şirketin talimatlarını takip edin, son bölgeye ulaşın, fiziksel kontrolü kabul edin ve kutlama kahvesini için. Şirketin planı başarılı olur.", e2_label: "Gerçek Son", e2_title: "Yardım Çağır.", e2_desc: "Pomephone P1 Max E'yi kullanın, bölgeye göre 911 veya 112'yi arayarak acil servislerle iletişime geçin, yasa dışı faaliyeti bildirin ve okuldan canlı kaçın.", e3_label: "Ölüm Sonu", e3_title: "Hayatta Kalama.", e3_desc: "Oyuncu balçık canavarlarına yakalanır ve okuldan kaçamadan ölür.",
+    wo_eyebrow: "Dünya", wo_title: "Var olmak için bir nedeni olan terk edilmiş bir okul.", wo_desc: "Okul, her katında Pomegranate Corp'un ne gizlediğini ortaya çıkaran dikey bir keşif alanı olarak inşa edilmiştir.", fl_m2_t: "Gizli Giriş", fl_m2_d: "Okulun altındaki gizli havalandırma girişleri ve rotalar.", fl_m1_t: "Su Basmış Bodrum", fl_m1_d: "İpuçları ve çevresel tehlikeler içeren batık alt kat.", fl_0_t: "Giriş / Ana Merkez", fl_0_d: "Başlangıç noktası ve merkezi gezinme alanı.", fl_13_t: "Derslikler ve Keşif", fl_13_d: "Belgelerin ve ipuçlarının keşfedildiği ana keşif katları.", fl_4_t: "Açık Hava Terası", fl_4_d: "En üstteki oynanabilir alan ve son sekansın temel bir parçası.", th_badge: "TEHDİT", th_title: "Siyah Kimyasal Balçık", th_desc: "Pomegranate Corp tarafından geliştirilen ve okulun içinde saklanan tehlikeli bir madde. Varlığı, çevrenin bir kısmını sürekli bir belirsizlik kaynağına dönüştürür.",
+    pl_eyebrow: "Teknoloji ve Kapsam", pl_title: "Geniş bir platform ağı için tasarlandı.", pl_desc: "Unreal Engine 5 temel teknolojiyi sağlar; öncelik masaüstü olup mobil sürümler de planlanmaktadır.", p1_d: "Temel motor ve geliştirme teknolojisi", p2_d: "Birincil masaüstü sürümü", p3_d: "Masaüstü sürümü", p4_d: "Masaüstü sürümü", p5_d: "Mobil hedef sürüm", p6_d: "Mobil hedef sürüm", st_title: "Mağazalar", tr_title: "Hedef Yaş Derecelendirmesi",
+    l_eyebrow: "Çıkış Stratejisi", l_title: "İlk günden itibaren küresel.", l_desc: "Çıkış planı uygun fiyatlandırma, bölgesel fiyatlandırma, yerelleştirme ve hedeflenen içerik üreticisi ulaşımını birleştirir.", l1_d: "Standart sürüm", l2_d: "Premium sürüm", l3_v: "28 Ekim", l3_d: "2027 küresel çıkış", l4_d: "Çıkış dilleri", ld_title: "Çıkış İndirimi", ld_desc: "LATAM, MENA, SEA ve Türkiye için planlanan ek bölgesel fiyatlandırmayla %20 çıkış indirimi.", as_title: "Kitle Stratejisi", as_desc: "Ekim 2027'de Steam Next Fest, yayıncı ulaşımı ve çok dilli bir çıkış kampanyası.",
+    tm_eyebrow: "Takım", tm_desc: "Escape from the School 1'in arkasındaki ekiple tanışın.", tm1_r: "Kurucu Ortak / Geliştirici", tm2_r: "Kurucu Ortak / Geliştirici", tm3_r: "Şirket Müdürü",
+    b_eyebrow: "Bütçe Planı", b_title: "50 Bın Dolar Üretım Planı.", b_desc: "Talep edilen fon; gerekli yüksek performanslı donanımı, oyun sanatını, ses tasarımlarını, yazılım lisanslarını, ofis operasyonlarını, yerelleştirmeyi ve platform ücretlerini kapsar ($1 = 48.5 TL).", bt1_l: "Hesaplanan Bütçe", bt1_s: "Kalemlendirilen operasyon planına göre", bt2_l: "Talep Edilen Fon", bt2_s: "3,212$ üretim rezervi dahildir",
+    bc1_t: "Geliştirme Donanımı", bc1_d: "Yüksek performanslı iş istasyonları ve test donanımları", bi1_1: "PC 1 - Ana Dev (RTX 5080 sistem)", bi1_2: "PC 2 - İkinci Dev sistemi", bi1_3: "MacBook Pro M5 32GB 1TB",
+    bc2_t: "Oyun Üretimi ve Varlıklar", bc2_d: "UE5 assetleri, OST, ses tasarımı ve sanat yönetimi", bi2_1: "3D Çevre ve UE5 Assetleri", bi2_2: "Orijinal OST ve Ses Tasarımı", bi2_3: "Seslendirme ve Hikaye Sesleri",
+    bc3_t: "Şirket Kurulumu ve Ofis", bc3_d: "Yasal kurulum, İstanbul ofis alanı ve operasyonlar", bi3_1: "Şirket Kuruluşu (Yottascope Ltd.)", bi3_2: "Minimum Sermaye Şartı", bi3_3: "Hukuk, Muhasebe ve Yönetim", bi3_4: "Ofis Alanı ve Operasyon (İstanbul)",
+    bc4_t: "Yerelleştirme ve Test", bc4_d: "14 çıkış dili ve QA testleri", bi4_1: "Yerelleştirme (14 Dil)", bi4_2: "QA Testleri ve Platform Uyumluluğu",
+    bc5_t: "Yazılım ve Servisler", bc5_d: "Yaratıcı tasarım, yapay zeka ve üretkenlik araçları", bi5_1: "Adobe CC Standard (1 yıllık)", bi5_2: "Figma Professional (1 yıllık, 2 lisans)", bi5_3: "Claude Pro x3 (1 yıllık)", bi5_4: "Google Workspace Standard (3 kullanıcı, 1 yıllık)",
+    bc6_t: "Platform ve Yayıncılık", bc6_d: "Mağaza hesapları, sunucu altyapısı ve lansman kampanyası", bi6_1: "Steam, Apple ve Google Geliştirici Hesapları", bi6_2: "Hetzner VPS ve Alan Adı Altyapısı (1 yıllık)", bi6_3: "Pazarlama ve Yayıncı Ulaşımı",
+    bc7_t: "Yedek Akçe", bc7_d: "Öngörülemeyen maliyetler için üretim tamponu", bi7_1: "Üretim Rezerv Tamponu", b_note: "Üretim rezervi, talep edilen toplam fonu 50.000 $'a getirerek döviz kuru dalgalanmaları ve üretim ölçeklendirmesi için bir güvenlik tamponu sağlar.",
+    sch_eyebrow: "Üretim Takvimi", sch_title: "Ön üretimden lansmana.", sch_desc: "Geliştirme; oynanabilir sistemler, cila, QA ve lansman hazırlığına odaklanan net aşamalar etrafında yapılandırılmıştır.", s1_t: "Ön Üretim", s1_d: "Tasarım, planlama, teknik altyapı ve kapsam tanımı.", s2_t: "Temel Geliştirme", s2_d: "Temel oynanış, keşif, çevre ve hikaye sistemleri.", s3_t: "Sistem Geliştirme", s3_d: "Oynanış döngülerini cilalama, platform özelliklerini entegre etme ve içerik ekleme.", s4_t: "Cila ve QA", s4_d: "Optimizasyon, hata düzeltme, testler, yaş derecelendirmeleri, yerelleştirme ve yayın hazırlığı.", s5_d: "<strong>Ekim 2027</strong><br>Halka açık EFS1 Trial demosu ve ana istek listesi kampanyası.", s6_t: "Lansman", s6_d: "<strong>28 Ekim 2027</strong><br>Küresel çıkış hedefi.",
+    c_eyebrow: "İletişim", c_title: "Konuşalım.", c_wa: "Yottascope ile Sohbet Et", c_soc: "Sosyal Medya", sg_dc: "Topluluk", f_copy: "© 2026 Yottascope. Tüm hakları saklıdır."
+  }
+};
+
+let currentLang = localStorage.getItem("yottascope-lang") || "en";
+const langBtn = document.getElementById("langToggle");
+
+function applyLang(l){
+  currentLang = l;
+  localStorage.setItem("yottascope-lang", l);
+  langBtn.textContent = l === "en" ? "TR" : "EN";
+  document.querySelectorAll("[data-k]").forEach(el => {
+    const key = el.getAttribute("data-k");
+    if(langData[l] && langData[l][key]){
+      el.innerHTML = langData[l][key];
+    }
+  });
+}
+
+langBtn.onclick = () => applyLang(currentLang === "en" ? "tr" : "en");
+
 const theme=document.getElementById("themeToggle"),menu=document.getElementById("mobileMenu"),nav=document.getElementById("navLinks"),efs1Logo=document.getElementById("efs1Logo");
 function setTheme(t){document.body.dataset.theme=t;theme.textContent=t==="dark"?"☼":"☾";if(efs1Logo)efs1Logo.src=t==="dark"?"efs1logo-white.png":"efs1logo-black.png";localStorage.setItem("yottascope-theme",t)}
 theme.onclick=()=>setTheme(document.body.dataset.theme==="dark"?"light":"dark");
@@ -156,7 +291,9 @@ menu.onclick=()=>nav.classList.toggle("open");
 nav.querySelectorAll("a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;document.querySelectorAll(".nav-links a").forEach(a=>a.classList.remove("active"));const a=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');if(a)a.classList.add("active")}),{rootMargin:"-35% 0px -55% 0px"});
 document.querySelectorAll("section[id]").forEach(s=>io.observe(s));
+
 setTheme(localStorage.getItem("yottascope-theme")||"dark");
+applyLang(currentLang);
 </script>
 </body>
 </html>
