@@ -152,7 +152,7 @@ section{padding:110px 0;border-top:1px solid var(--border)}.section-heading{max-
 
 <script>
 const theme=document.getElementById("themeToggle"),menu=document.getElementById("mobileMenu"),nav=document.getElementById("navLinks"),efs1Logo=document.getElementById("efs1Logo");
-function setTheme(t){document.body.dataset.theme=t;theme.textContent=t==="dark"?"☼":"☾";if(efs1Logo)efs1Logo.src=t==="dark"?"efs1logo-white.png":"efs1logo-black.png";localStorage.setItem("yottascope-theme",t)}
+function setTheme(t){document.body.dataset.theme=t;theme.textContent=t==="dark"?"☼":"☾";if(efs1Logo)efs1Logo.src="efs1logo-white.png";localStorage.setItem("yottascope-theme",t)}
 theme.onclick=()=>setTheme(document.body.dataset.theme==="dark"?"light":"dark");
 menu.onclick=()=>nav.classList.toggle("open");
 nav.querySelectorAll("a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
